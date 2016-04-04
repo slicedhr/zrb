@@ -1,0 +1,40 @@
+<%=
+	
+	grid(@accounting_classifications_grid, hide_reset_button: true, hide_submit_button: true, class: 'centered bordered striped highlight', show_filters: :when_filtered, upper_pagination_panel: false) do |g|
+
+		g.column name: 'Nombre Cuenta', attribute: 'name', filter: true, ordering: true, detach_with_id: :name_filter do |classification|
+			classification.name
+		end
+
+		g.column name: 'Cuenta contable', attribute: 'account', filter: true, ordering: true, detach_with_id: :account_filter do |classification|
+		    classification.account
+		end
+
+		g.column name: 'IFRS', attribute: 'ifrs_value', filter: true, ordering: true, detach_with_id: :ifrs_filter do |classification|
+		    classification.ifrs_value
+		end
+
+		g.column name: 'Local', attribute: 'local_value', filter: true, ordering: true, detach_with_id: :local_filter do |classification|
+		    classification.local_value
+		end
+
+		if !(params and params[:grid] and params[:grid][:export])
+
+		  # g.column class: 'td-button' do |classification|
+		  #   link_to '<i class="fa fa-book"></i>'.html_safe, classification, title: "Ver"
+		  # end
+
+		  g.column class: 'td-button' do |classification|
+		    link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_accounting_classification_path(classification), title: "Editar"
+		  end
+
+		  g.column class: 'td-button' do |classification|
+		    link_to '<i class="fa fa-trash-o"></i>'.html_safe, classification, title: "Eliminar", method: :delete, data: { confirm: '¿Realmente deseas eliminar esto?' }
+		  end
+
+		end
+
+
+	end
+
+%>

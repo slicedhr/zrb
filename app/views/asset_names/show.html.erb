@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @asset_name.name %>
+</p>
+
+<p>
+  <strong>Height:</strong>
+  <%= @asset_name.height %>
+</p>
+
+<p>
+  <strong>Width:</strong>
+  <%= @asset_name.width %>
+</p>
+
+<p>
+  <strong>Depth:</strong>
+  <%= @asset_name.depth %>
+</p>
+
+<p>
+  <strong>Joined:</strong>
+  <%= @asset_name.joined %>
+</p>
+
+<p>
+  <strong>Source:</strong>
+  <%= @asset_name.source %>
+</p>
+
+<p>
+  <strong>Purchase price:</strong>
+  <%= @asset_name.purchase_price %>
+</p>
+
+<p>
+  <strong>Brand:</strong>
+  <%= @asset_name.brand %>
+</p>
+
+<p>
+  <strong>Useful life:</strong>
+  <%= @asset_name.useful_life %>
+</p>
+
+<%= link_to 'Edit', edit_asset_name_path(@asset_name) %> |
+<%= link_to 'Back', asset_names_path %>

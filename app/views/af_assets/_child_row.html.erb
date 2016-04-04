@@ -1,0 +1,5 @@
+<%- the_asset = AfAsset.includes(:asset_name).find_by_id(asset) %>
+
+<tr class='<%= asset.id %>'>
+	<td><%= the_asset.asset_name.name %></td>
+</tr>

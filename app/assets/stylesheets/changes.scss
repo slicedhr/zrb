@@ -1,0 +1,271 @@
+.wice-grid tr.wg-filter-row input[type=text]{
+	width: 100% !important;
+}
+.td-button{
+	width: 26px;
+}
+
+.font-size-2em{
+	font-size: 2em;
+}
+.default-search-button{
+	position: absolute;
+	right: 3%;
+	top: 215px;
+	transition: .6s all;
+	z-index: 2;
+}
+
+.default-search-button i{
+	display: block;
+}
+
+.default-add-button{
+	position: fixed;
+	right: 3%;
+	bottom: 6%;
+}
+
+.header-section{
+	background: #34495e image-url("patterns/axiom-pattern.png");
+	color: white;
+	height: 260px;
+	overflow: hidden;
+	position: relative;
+	top: -40px;
+	width: 100%;
+}
+
+.header-section h1{
+	margin-left: 2%;
+	margin-top: 5%;
+}
+
+.header-section .header-section__icon{
+	font-size: 15em;
+    position: absolute;
+    right: -12px;
+    top: -17px;
+    opacity: 0.4;
+}
+
+
+.login-section{
+	background: image-url('fondo-login.jpg') center center no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+	position: relative;
+}
+
+.maincontent{
+	/*background: white image-url('fondo-login.jpg') no-repeat;*/
+	/*background-size: cover;*/
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+	margin: 0 auto;
+    border-radius: 5px 5px 0 0;
+    margin-bottom: 19px;
+    margin-top: -9%;
+    padding: 0;
+    position: relative;
+    width: 96%;
+    z-index: 1;
+}
+
+.maincontent .maincontent__cleanfiltersbutton{
+	margin-left: 3%;
+}
+
+.maincontent .maincontent__hiddenfilters{
+	background: white;
+	margin-bottom: 0;
+	display: none;
+	border-bottom: 1px solid #d0d0d0;
+}
+
+.maincontent .wice-grid-container{
+	background: white;
+}
+
+.loadingbox{
+	position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 9;
+    will-change: opacity;
+}
+
+.loadingbox .loadingbox__preloadercontent{
+	margin-top:20%;
+}
+
+.inline-block{
+	display: inline-block;
+}
+.vertical-align-middle{
+	vertical-align: middle;
+}
+.vertical-align-top{
+	vertical-align: top;
+}
+.sty-login{
+	background: white;
+}
+
+.rc-handle-container {
+  position: relative;
+}
+.rc-handle {
+  position: absolute;
+  width: 7px;
+  cursor: ew-resize;
+  margin-left: -3px;
+  z-index: 2;
+}
+table.rc-table-resizing {
+  cursor: ew-resize;
+}
+table.rc-table-resizing thead,
+table.rc-table-resizing thead > th,
+table.rc-table-resizing thead > th > a {
+  cursor: ew-resize;
+}
+
+tfoot .export-to-csv-button{
+	display: none;
+}
+
+body{
+	overflow-x:hidden;
+	background: rgba(189, 195, 199, 0.42) image-url('background.png');
+}
+.header, .header .header__icons{
+	height: 45px;
+}
+
+.header i{
+	height: 10px;
+}
+
+.header .left-menu-button{
+	display: block;
+	margin-left: 3%;
+}
+
+nav, nav a.button-collapse, nav a.button-collapse i{
+	line-height: 45px !important;
+}
+
+.header .left-menu-button i{
+	font-size: 16px;
+}
+.header .header__icons{
+
+}
+.ellipsis{
+	text-overflow: ellipsis;
+}
+
+.sty-header-menu{
+  background: #34495E image-url("patterns/axiom-pattern.png");
+  color: white;
+  width: 240px;
+  height: 175px;
+}
+
+.column-with-icon{
+	padding-left: 1.5%;
+}
+
+.more-assets{
+    color: green;
+	cursor:pointer;
+    left: 3px;
+	position: absolute;
+}
+
+tr.children-row{
+	background: #f2f2f2 !important;
+	display:none;
+}
+
+.tools-buttons{
+	display: none;
+}
+
+.tool-buttons__buttons-container{
+	background: white;
+	display: flex;
+	justify-content: center;
+	// padding: 20px 0;
+}
+
+.tool-buttons__buttons-container .btn{
+	margin: 14px;
+}
+
+.tool-buttons__by-account{
+	display: none;
+}
+
+.tool-buttons__by-account .input-field{
+	margin-top: 0;
+}
+
+.tool-buttons__by-account__form{
+	margin-top: 2%;
+}
+
+.background-white{
+	background-color: white !important;
+}
+
+.background-darkblue{
+	background-color:#34495E !important;
+}
+
+.footer-sty{
+	margin-top: 2%;
+}
+.sty-login{
+	background: image-url("fondo-login.jpg") no-repeat center center cover !important;
+}
+
+th[data-hidden], td[data-hidden]{
+	display: none;
+}
+
+.columns_sh{
+	background: white;
+	height: 100%;
+	left: -200px;
+	overflow: auto;
+	position: fixed;
+	top:0;
+	width: 200px;
+	transition: all .6s ease-in-out;
+	z-index: 3;
+}
+
+.columns_sh.visible{
+	left: 0;
+}
+.columns_sh__content{
+	padding-left: 15px;
+}
+.columns_sh__header{
+	background: #2196F3;
+	color: white;
+	padding: 1%;
+}
+.columns_sh__header i{
+	cursor:pointer;
+	color: red;
+}
+/*image-url('fondo-login.jpg') no-repeat center center cover !important*/
+/*
+	axiom blue #2980b9
+	pinstripe #2c3e50
+*/

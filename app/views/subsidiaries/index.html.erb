@@ -1,0 +1,110 @@
+<div class="header-section row">
+    <h1>Sucursales</h1>
+    <i class="fa fa-building-o header-section__icon"></i>
+
+  
+</div>
+    <a class="btn-floating btn-large waves-effect waves-light blue font-size-2em default-search-button tooltipped" data-slide-target=".maincontent__hiddenfilters" data-position="top" data-delay="50" data-tooltip="Filtrar" href="javascript:void(0)"><i class="fa fa-search"></i></a>
+
+<div class="maincontent">
+  
+    <div class="row maincontent__hiddenfilters">
+
+      <div class="col s12 maincontent__toolbuttons center-align">
+        
+        <h3 class="inline-block vertical-align-middle">Filtrar </h3>
+
+        <span>&nbsp;</span>
+        <span>&nbsp;</span>
+        <span>&nbsp;</span>
+
+        <button class="waves-effect waves-light btn wg-external-csv-export-button maincontent__exportbutton inline-block vertical-align-middle" data-grid-name="grid"><i class="fa fa-file-excel-o"></i> Exportar a Excel</button>
+        
+      </div>
+
+      
+
+      <div class="row sty-filtros">
+        
+        <div class="wg-detached-filter grid_detached_filter input-field col s6" data-grid-name="grid">
+
+          <label for="grid_f_address">Nombre</label>
+
+          <input type="text" name="grid[f][address]" id="grid_f_address" 
+              value="<%= 
+                  if (params and params[:grid] and params[:grid][:f] and params[:grid][:f][:address])
+                    params[:grid][:f][:address]
+                  else
+                    ''
+                  end %>" size="8">
+        </div>
+
+        <div class="wg-detached-filter grid_detached_filter input-field col s6" data-grid-name="grid">
+
+          <select id="grid_f_cities_name" onchange="setSelectValue('grid_f_cities_name', this)" value="<%=
+                if (params and params[:grid] and params[:grid][:f] and params[:grid][:f]['cities.name'])
+                    params[:grid][:f]['cities.name']
+                  else
+                    ''
+                  end  %>">
+
+              <% City.all.each do |city| %>
+
+                <option value="<%= city.name %>" 
+
+                      <%=
+
+                        (params and params[:grid] and params[:grid][:f] and params[:grid][:f]['cities.name'] and (params[:grid][:f]['cities.name'] == city.name)) ?
+
+                          'selected'
+
+                          :
+
+                          ''
+
+                      %>
+
+                  ><%= city.name %></option>
+
+              <% end %> 
+
+          </select>
+          
+          <label for="grid_f_cities_name">Ciudad</label>
+
+        </div>
+
+
+
+        
+
+      </div>
+
+      <div class="col s5 row right-align">
+
+        <button class="waves-effect waves-light btn wg-external-submit-button maincontent__cleanfiltersbutton inline-block vertical-align-middle" data-grid-name="grid"><i class="fa fa-filter"></i> Filtrar</button>
+
+      </div>
+
+      <span class="col s2">&nbsp;</span>
+
+      <div class="row col s5">
+
+        <button class="waves-effect waves-light btn wg-external-reset-button maincontent__cleanfiltersbutton inline-block vertical-align-middle" data-grid-name="grid"><i class="fa fa-recycle"></i> Limpiar Filtros</button>
+
+      </div>
+      
+    </div>
+
+  <%= render 'grid'  %>
+
+  <!-- Float button -->
+  <%= link_to "+", 
+      new_subsidiary_path, 
+        class:"btn-floating btn-large waves-effect waves-light green font-size-2em default-add-button tooltipped", 
+          data: {
+            position:"top", 
+            delay:"50", 
+            tooltip:"Nuevo Item"
+          } 
+    %>

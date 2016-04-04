@@ -1,0 +1,136 @@
+<%=
+	
+	grid(@af_assets_grid, hide_reset_button: true, hide_submit_button: true, class: 'centered bordered striped highlight', show_filters: :when_filtered, upper_pagination_panel: false) do |g|
+
+		g.column name: 'Nombre', attribute: 'joined', assoc: :asset_name, class: 'column-with-icon', filter: true, detach_with_id: :af_asset_filter, html: { data: { column: 'asset_name'} } do |af_asset|
+
+		    if af_asset.af_assets.length > 0
+		    	"<span class='more-assets' data-asset='#{af_asset.id}'>
+					<i class='fa fa-arrow-circle-right'></i>
+		    	 </span>".html_safe + af_asset.asset_name.joined if af_asset.asset_name
+		    else
+		    	af_asset.asset_name.joined if af_asset.asset_name
+		    end
+		end
+
+		g.column name: 'Serial', attribute: 'serial', html: { data: { column: 'serial' } }, filter: true, ordering: false, detach_with_id: :serial_filter do |af_asset|
+			af_asset.serial
+		end
+
+		g.column name: 'Modelo', attribute: 'model', html: { data: { column: 'model' } }, filter: true, ordering: false, detach_with_id: :model_filter do |af_asset|
+			af_asset.model
+		end
+
+		g.column name: 'Marca', attribute: 'name', html: { data: { column: 'brand', hidden: true } }, assoc: :asset_name, filter: false do |af_asset|
+			'NA'
+		end
+
+		g.column name: 'Placa Actual', attribute: 'current_plaque', html: { data: { column: 'current_plaque' } }, filter: true, ordering: false, detach_with_id: :current_plaque_filter do |af_asset|
+			af_asset.current_plaque
+		end
+
+		g.column name: 'Placa Antigua', attribute: 'old_plaque', html: { data: { column: 'old_plaque' }, hidden: true }, filter: true, ordering: false, detach_with_id: :old_plaque_filter do |af_asset|
+			af_asset.old_plaque
+		end
+
+		g.column name: 'Placa Tecnólogia', attribute: 'tech_plaque', html: { data: { column: 'tech_plaque' }, hidden: true }, filter: true, ordering: false, detach_with_id: :tech_plaque_filter do |af_asset|
+			af_asset.tech_plaque
+		end
+
+		g.column name: 'Custodio', attribute: 'full_name', html: { data: { column: 'custodian' } }, assoc: :custodian, ordering: true, filter: true, detach_with_id: :custonian_filter do |af_asset|
+			af_asset.custodian.full_name if af_asset.custodian
+		end
+
+		g.column name: 'Ub. Interna', attribute: 'name', html: { data: { column: 'internal_location' } }, assoc: :internal_location, ordering: true, filter: true, detach_with_id: :intenal_location_filter do |af_asset|
+			af_asset.internal_location.name if af_asset.internal_location
+		end
+
+		g.column name: 'Sucursal', attribute: 'address', html: { data: { column: 'subsidiary' } }, assoc: :subsidiary, ordering: true, filter: true, detach_with_id: :subsidiary_filter do |af_asset|
+			af_asset.subsidiary.address if af_asset.subsidiary
+		end
+		
+		g.column name: 'Factor M', attribute: 'factor_m', html: { data: { column: 'factor_m', hidden: true } }, filter: true, ordering: false,  detach_with_id: :factor_m_filter do |af_asset|
+			af_asset.factor_m
+		end
+
+		g.after_row do |af_asset, number_of_columns|
+
+		    if af_asset.af_assets.length > 0
+		    	
+		    	"<tr data-tr='#{af_asset.id}' class='children-row'>
+					<td colspan='#{number_of_columns}'>
+						<div class='preloader-wrapper big active'>
+					      <div class='spinner-layer spinner-blue'>
+					        <div class='circle-clipper left'>
+					          <div class='circle'></div>
+					        </div><div class='gap-patch'>
+					          <div class='circle'></div>
+					        </div><div class='circle-clipper right'>
+					          <div class='circle'></div>
+					        </div>
+					      </div>
+
+					      <div class='spinner-layer spinner-red'>
+					        <div class='circle-clipper left'>
+					          <div class='circle'></div>
+					        </div><div class='gap-patch'>
+					          <div class='circle'></div>
+					        </div><div class='circle-clipper right'>
+					          <div class='circle'></div>
+					        </div>
+					      </div>
+
+					      <div class='spinner-layer spinner-yellow'>
+					        <div class='circle-clipper left'>
+					          <div class='circle'></div>
+					        </div><div class='gap-patch'>
+					          <div class='circle'></div>
+					        </div><div class='circle-clipper right'>
+					          <div class='circle'></div>
+					        </div>
+					      </div>
+
+					      <div class='spinner-layer spinner-green'>
+					        <div class='circle-clipper left'>
+					          <div class='circle'></div>
+					        </div><div class='gap-patch'>
+					          <div class='circle'></div>
+					        </div><div class='circle-clipper right'>
+					          <div class='circle'></div>
+					        </div>
+					      </div>
+					    </div>
+					</td>
+		    	</tr>".html_safe
+		    	# render :partial => "child_row", :collection => @assets, :as => :asset
+
+		    else
+		      nil
+		    end
+		  end
+
+		# g.column name: 'Fuente', attribute: 'source', filter: true, ordering: true, detach_with_id: :_filter do |af_asset|
+		#     !(params and params[:grid] and params[:grid][:export]) ? "<a href='#{af_asset.source}' target='_blank'>#{af_asset.source}</a>".html_safe : af_asset.source
+		# end
+
+		# g.column name: 'Precio de compra', attribute: 'purchase_price', filter: true, ordering: true, detach_with_id: :purchase_price_filter do |af_asset|
+		#     number_to_currency(af_asset.purchase_price)
+		# end
+
+		# g.column name: 'Marca', attribute: 'name', assoc: :brand, filter: true, detach_with_id: :brand_filter do |af_asset|
+		#     af_asset.brand.name if af_asset.brand
+		# end
+
+		g.column class: 'td-button', in_csv: false do |af_asset|
+			link_to '<i class="fa fa-search"></i>'.html_safe, af_asset, title: "Ver"
+		end
+
+		g.column class: 'td-button', in_csv: false do |af_asset|
+			link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_af_asset_path(af_asset), title: "Editar"
+		end
+
+
+
+	end
+
+%>

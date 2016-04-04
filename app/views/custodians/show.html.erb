@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Full name:</strong>
+  <%= @custodian.full_name %>
+</p>
+
+<p>
+  <strong>Office work:</strong>
+  <%= @custodian.office_work %>
+</p>
+
+<p>
+  <strong>Identification:</strong>
+  <%= @custodian.identification %>
+</p>
+
+<p>
+  <strong>Phones:</strong>
+  <%= @custodian.phones %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @custodian.email %>
+</p>
+
+<%= link_to 'Edit', edit_custodian_path(@custodian) %> |
+<%= link_to 'Back', custodians_path %>

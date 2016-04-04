@@ -1,0 +1,33 @@
+<%=
+	
+	grid(@subsidiaries_grid, hide_reset_button: true, hide_submit_button: true, class: 'centered bordered striped highlight', show_filters: :when_filtered, upper_pagination_panel: false) do |g|
+
+		g.column name: 'Nombre', attribute: 'address', filter: true, ordering: true, detach_with_id: :address_filter do |subsidiary|
+			subsidiary.address
+		end
+
+		g.column name: 'Ciudad', attribute: 'name', assoc: :city, filter: true, detach_with_id: :city_filter do |subsidiary|
+		    subsidiary.city.name if subsidiary.city
+		end
+
+
+		if !(params and params[:grid] and params[:grid][:export])
+
+		  # g.column class: 'td-button' do |subsidiary|
+		  #   link_to '<i class="fa fa-book"></i>'.html_safe, subsidiary, title: "Ver"
+		  # end
+
+		  g.column class: 'td-button' do |subsidiary|
+		    link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_subsidiary_path(subsidiary), title: "Editar"
+		  end
+
+		  g.column class: 'td-button' do |subsidiary|
+		    link_to '<i class="fa fa-trash-o"></i>'.html_safe, subsidiary, title: "Eliminar", method: :delete, data: { confirm: '¿Realmente deseas eliminar esto?' }
+		  end
+
+		end
+
+
+	end
+
+%>

@@ -1,0 +1,201 @@
+<div class="row sty-tab z-depth-1">
+    <div>
+      <ul class="tabs">
+        <li class="tab col s3 sty-tab-border"><a href="#tab1">Detalles</a></li>
+        <li class="tab col s3 sty-tab-border"><a href="#tab2">Movimientos</a></li>
+        <li class="tab col s3 sty-tab-border"><a href="#tab3">Fotos</a></li>
+        <li class="tab col s3"><a href="#tab4">Hijos</a></li>
+      </ul>
+    </div>
+
+    <div class="row col s12" id="tab1">
+    <br>
+      <div  class="col s6 sty-perfil-deta"><strong>Nombre: </strong><%= @af_asset.asset_name.name if @af_asset.asset_name  %> </div>
+      <div  class="col s3 sty-perfil-deta"><strong>Marca: </strong><%= @af_asset.brand.name if @af_asset.brand  %></div>
+      <div  class="col s3 sty-perfil-deta"><strong>Serie: </strong><%= @af_asset.serial  %></div> 
+      <div  class="col s3 sty-perfil-deta"><strong>Modelo: </strong><%= @af_asset.model  %></div>
+      <div  class="col s3 sty-perfil-deta"><strong>Cantidad: </strong><%= @af_asset.quantity  %></div>
+      <div  class="col s3 sty-perfil-deta"><strong>Referencia: </strong><%= @af_asset.reference  %></div>
+      <div  class="col s3 sty-perfil-deta"><strong>Placa de tecnología: </strong><%= @af_asset.tech_plaque %></div>
+      <div  class="col s3 sty-perfil-deta"><strong>Placa antigua: </strong><%= @af_asset.old_plaque %></div>
+      <div  class="col s3 sty-perfil-deta"><strong>Placa nueva: </strong><%= @af_asset.current_plaque %></div>
+      <div  class="col s3 sty-perfil-deta"><strong>Asignado A: </strong><%= @af_asset.custodian.full_name if @af_asset.custodian %></div>
+      <div  class="col s3 sty-perfil-deta"><strong>Ubicacion interna: </strong><%= @af_asset.internal_location.name if @af_asset.internal_location %></div>
+      <div  class="col s3 sty-perfil-deta"><strong>Factor M: </strong><%= @af_asset.factor_m %></div>
+      <div  class="col s3 sty-perfil-deta"><strong>Proveedor: </strong><%= @af_asset.supplier.name if @af_asset.supplier %></div>
+      <div  class="col s3 sty-perfil-deta"><strong>Fecha de compra: </strong><%= @af_asset.purchase_date %></div>
+      <div  class="col s3 sty-perfil-deta"><strong>Categoria raiz: </strong><%= @af_asset.root_category.text if @af_asset.root_category %></div>
+      <div  class="col s6 sty-perfil-deta"><strong>Descripcion tecnica: </strong><%= @af_asset.characteristics %></div>
+      <div  class="col s6 sty-perfil-deta"><strong>Observaciones: </strong><%= @af_asset.comments %></div>
+      <div  class="col s3 sty-perfil-deta"><strong>Estado: </strong>
+        <a class=" modal-trigger" href="#modal1">
+          <strong>Dado de Baja</strong>
+        </a>
+          <div id="modal1" class="modal">
+            <div class="modal-content">
+              <h4 class="center-align">Detalles</h4>
+              <div  class="col s6 sty-perfil-deta"><strong>Motivo:</strong></div>
+              <div  class="col s6 sty-perfil-deta"><strong>Fecha:</strong></div>
+              <div  class="col s6 sty-perfil-deta"><strong>Solicitado por:</strong></div>
+              <div  class="col s6 sty-perfil-deta"><strong>Autorizado por:</strong></div>
+              <div  class="col s6 sty-perfil-deta"><strong>Valor de venta:</strong></div>
+              <div  class="col s6 sty-perfil-deta"><strong>Soporte:</strong></div>
+              <div  class="col s6 sty-perfil-deta"><strong>Comprador:</strong></div>
+              <div  class="col s3 sty-perfil-deta"><strong>NIT:</strong></div>
+              <div  class="col s3 sty-perfil-deta"><strong>TEL:</strong></div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <div id="tab2" class="row col s12">
+    <br>
+      <div class="row col s6">
+        <div  class="col s12"><strong>Ciudad a:</strong></div>
+        <div  class="col s12"><strong>Ciudad n:</strong></div>      
+      </div>
+
+      <div class="row col s6">
+        <div  class="col s12"><strong>sucursal a:</strong></div>
+        <div  class="col s12"><strong>sucursal n:</strong></div>      
+      </div>
+
+      <div class="row col s6">
+        <div  class="col s12"><strong>u. interna a:</strong></div>
+        <div  class="col s12"><strong>u. interna n:</strong></div>      
+      </div>
+
+      <div class="row col s6">
+        <div  class="col s12"><strong>Custodio a:</strong></div>
+        <div  class="col s12"><strong>Custodio n:</strong></div>      
+      </div>
+
+      <div class="row col s6">
+        <div  class="col s12"><strong>Tipo de movimiento:</strong></div>  
+        <div  class="col s12"><strong>Fecha de movimiento:</strong></div>
+
+      </div>
+      <div class="row col s6">
+        <div  class="col s12"><strong>Fecha salida:</strong></div>
+        <div  class="col s12"><strong>Fecha entrada:</strong></div>      
+      </div>
+
+    </div>
+
+
+
+    <div id="tab3" class="row col s12 center-align">
+    <br>
+      <div class="col s3 sty-perfil-foto">
+          <%= image_tag 'background1.jpg', class: 'materialboxed sty-img-perfil z-depth-1' %>
+      </div>      
+      <div class="col s3 sty-perfil-foto">
+          <%= image_tag 'background2.jpg', class: 'materialboxed sty-img-perfil z-depth-1' %>
+      </div>      
+      <div class="col s3 sty-perfil-foto">
+          <%= image_tag 'background3.jpg', class: 'materialboxed sty-img-perfil z-depth-1' %>
+      </div>      
+      <div class="col s3 sty-perfil-foto">
+          <%= image_tag 'background1.jpg', class: 'materialboxed sty-img-perfil z-depth-1' %>
+      </div>  
+    </div>
+
+
+    <div id="tab4" class="row col s12 center-align">
+    <br>
+    <% if @af_asset.af_assets.length > 1 
+
+        @af_asset.af_assets.each do |child|
+
+    %>
+
+      <div class="col s6 sty-perfil-hijo"><%= child.getChildName(child) %></div>
+
+    <% 
+        end
+      end 
+    %>
+      <div class="col s6 sty-perfil-hijo">Nombre de hijo</div>
+      <div class="col s6 sty-perfil-hijo">Nombre de hijo</div>
+      <div class="col s6 sty-perfil-hijo">Nombre de hijo</div>
+      <div class="col s6 sty-perfil-hijo">Nombre de hijo</div>
+      <div class="col s6 sty-perfil-hijo">Nombre de hijo</div>
+      <div class="col s6 sty-perfil-hijo">Nombre de hijo</div>
+      <div class="col s6 sty-perfil-hijo">Nombre de hijo</div>
+
+    </div>
+  </div>
+  
+  <div  class="red btn sty-btn-baja ">
+    <a class=" modal-trigger sty-text-btn-baja" href="#modal2">
+      <strong><i class="fa fa-level-down"></i> Dar de Baja</strong>
+    </a>
+      <div id="modal2" class="modal">
+        <div class="row modal-content">
+            <h5 class="sty-modal2-header">Dar de Baja <i class="fa fa-file-text-o sty-icon-header-for"></i></h5>
+            <form class="col s12">
+                <div class="input-field col s6">
+                  <input type="text" id="motivo" class="validate">
+                  <label for="motivo">Motivo</label>
+                </div>
+
+                <div class="input-field col s6">
+                  <input  type="text" id="fecha" class="validate">
+                  <label for="fecha">Fecha</label>
+                </div>
+
+                <div class="input-field col s6">
+                  <input  type="text" id="solicitante" class="validate">
+                  <label for="solicitante">Solicitante</label>
+                </div>
+
+                <div class="input-field col s6">
+                  <input  type="text" id="aprobante" class="validate">
+                  <label for="aprobante">Aprobante</label>
+                </div>
+
+                <div class="input-field col s6">
+                  <input  type="text" id="valor" class="validate">
+                  <label for="valor">Valor de venta</label>
+                </div>
+
+                <div class="input-field col s6">
+                  <input  type="text" id="soporte" class="validate">
+                  <label for="soporte">Soporte</label>
+                </div> 
+
+                <div class="input-field col s6">
+                  <input  type="text" id="comprador" class="validate">
+                  <label for="comprador">Comprador</label>
+                </div>  
+
+                <div class="input-field col s3">
+                  <input  type="text" id="nit" class="validate">
+                  <label for="nit">Nit</label>
+                </div>   
+
+                <div class="input-field col s3">
+                  <input  type="text" id="tel" class="validate">
+                  <label for="tel">Telefono</label>
+                </div>                          
+                <div class="row sty-for-btns">
+                  <div class="col s5 right-align btn-atras-baja">
+                    <%= link_to "#!", class: "waves-effect waves-light btn red modal-close" do %>
+                      <i class="fa fa-share-square-o"></i> Atras
+                    <% end %>
+                  </div>
+                  <span class="col s1">&nbsp;</span>
+                  <div class="col s5 left-align">
+                    <button type="submit" class="waves-effect waves-light btn green"><i class="fa fa-check-square-o"></i> Listo</button>
+                  </div>
+                 </div>
+            </form>
+        </div>
+      </div>
+  </div>
+
+  <div class="center-align btn-atras-for">
+        <%= link_to af_assets_path, class: "waves-effect waves-light btn red" do %>
+        <i class="fa fa-share-square-o"></i> Atras
+    <% end %>
+  </div>

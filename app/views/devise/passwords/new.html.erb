@@ -1,16 +1,20 @@
-<h2>Forgot your password?</h2>
+<div class="row sty-recup-password z-depth-2">
+<h5 class="sty-recup-password-header">¿Olvidaste tu contraseña?</h5>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+  <div class="sty-recup-mns-error"><%= devise_error_messages! %></div>
+	
+	  <div class="input-field sty-recup-password-email">
+	    <label for="user_email">Email</label>
+	    <input autofocus="autofocus" type="email" name="user[email]" id="user_email">
+	  </div>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
+
+  <button class="btn waves-effect waves-light sty-recup-password-btn" type="submit" name="action"><i class="fa fa-sign-in"></i> Enviar instrucciones
+  </button>
 <% end %>
-
+<br>
+<i class="fa fa-reply"></i>
 <%= render "devise/shared/links" %>
+</div>

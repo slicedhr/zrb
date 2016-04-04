@@ -1,0 +1,194 @@
+<div class="header-section row">
+    <h1>Nombres de Activos</h1>
+    <i class="fa fa-exclamation-circle header-section__icon"></i>
+  
+</div>
+    <a class="btn-floating btn-large waves-effect waves-light blue font-size-2em default-search-button tooltipped" data-slide-target=".maincontent__hiddenfilters" data-position="top" data-delay="50" data-tooltip="Filtrar" href="javascript:void(0)"><i class="fa fa-search"></i></a>
+
+<div class="maincontent">
+  
+    <div class="row maincontent__hiddenfilters">
+
+      <div class="col s12 maincontent__toolbuttons center-align">
+        
+        <h3 class="inline-block vertical-align-middle">Filtrar </h3>
+
+        <span>&nbsp;</span>
+        <span>&nbsp;</span>
+        <span>&nbsp;</span>
+
+        <button class="waves-effect waves-light btn wg-external-csv-export-button maincontent__exportbutton inline-block vertical-align-middle" data-grid-name="grid"><i class="fa fa-file-excel-o"></i> Exportar a Excel</button>
+        
+      </div>
+
+      
+
+      <div class="row sty-filtros">
+        
+        <div class="wg-detached-filter grid_detached_filter input-field col s4" data-grid-name="grid">
+
+          <label for="grid_f_name">Nombre</label>
+
+          <input type="text" name="grid[f][name]" id="grid_f_name" 
+              value="<%= 
+                  if (params and params[:grid] and params[:grid][:f] and params[:grid][:f][:name])
+                    params[:grid][:f][:name]
+                  else
+                    ''
+                  end %>" size="8">
+        </div>
+
+        <div class="wg-detached-filter grid_detached_filter input-field col s4" data-grid-name="grid">
+
+          <label for="grid_f_height">Alto</label>
+          
+          <input type="text" name="grid[f][height]" id="grid_f_height" value="<%= 
+                  if (params and params[:grid] and params[:grid][:f] and params[:grid][:f][:height])
+                    params[:grid][:f][:height]
+                  else
+                    ''
+                  end %>" size="8">
+
+        </div>
+        <div class="wg-detached-filter grid_detached_filter input-field col s4" data-grid-name="grid">
+
+          <label for="grid_f_width">Ancho</label>
+          
+          <input type="text" name="grid[f][width]" id="grid_f_width" value="<%= 
+                  if (params and params[:grid] and params[:grid][:f] and params[:grid][:f][:width])
+                    params[:grid][:f][:width]
+                  else
+                    ''
+                  end %>" size="8">
+
+        </div>
+        <div class="wg-detached-filter grid_detached_filter input-field col s4" data-grid-name="grid">
+
+          <label for="grid_f_depth">Profundidad</label>
+          
+          <input type="text" name="grid[f][depth]" id="grid_f_depth" value="<%= 
+                  if (params and params[:grid] and params[:grid][:f] and params[:grid][:f][:depth])
+                    params[:grid][:f][:depth]
+                  else
+                    ''
+                  end %>" size="8">
+
+        </div>
+        <div class="wg-detached-filter grid_detached_filter input-field col s4" data-grid-name="grid">
+
+          <label for="grid_f_joined">Concatenado</label>
+          
+          <input type="text" name="grid[f][joined]" id="grid_f_joined" value="<%= 
+                  if (params and params[:grid] and params[:grid][:f] and params[:grid][:f][:joined])
+                    params[:grid][:f][:joined]
+                  else
+                    ''
+                  end %>" size="8">
+
+        </div>
+        <div class="wg-detached-filter grid_detached_filter input-field col s4" data-grid-name="grid">
+
+          <label for="grid_f_profundidad">Fuente</label>
+          
+          <input type="text" name="grid[f][profundidad]" id="grid_f_profundidad" value="<%= 
+                  if (params and params[:grid] and params[:grid][:f] and params[:grid][:f][:profundidad])
+                    params[:grid][:f][:profundidad]
+                  else
+                    ''
+                  end %>" size="8">
+
+        </div>
+        <div class="wg-detached-filter grid_detached_filter input-field col s4" data-grid-name="grid">
+
+          <label for="grid_f_purchase_price">Precio de compra</label>
+          
+          <input type="text" name="grid[f][purchase_price]" id="grid_f_purchase_price" value="<%= 
+                  if (params and params[:grid] and params[:grid][:f] and params[:grid][:f][:purchase_price])
+                    params[:grid][:f][:purchase_price]
+                  else
+                    ''
+                  end %>" size="8">
+
+        </div>
+
+        <div class="wg-detached-filter grid_detached_filter input-field col s4" data-grid-name="grid">
+
+          <select id="grid_f_brands_name" onchange="setSelectValue('grid_f_brands_name', this)" value="<%=
+                if (params and params[:grid] and params[:grid][:f] and params[:grid][:f]['brands.name'])
+                    params[:grid][:f]['brands.name']
+                  else
+                    ''
+                  end  %>">
+
+              <% Brand.all.each do |brand| %>
+
+                <option value="<%= brand.name %>" 
+
+                      <%=
+
+                        (params and params[:grid] and params[:grid][:f] and params[:grid][:f]['brands.name'] and (params[:grid][:f]['brands.name'] == brand.name)) ?
+
+                          'selected'
+
+                          :
+
+                          ''
+
+                      %>
+
+                  ><%= brand.name %></option>
+
+              <% end %> 
+
+          </select>
+          
+          <label for="grid_f_brands_name">Marca</label>
+
+        </div>
+
+
+        <div class="wg-detached-filter grid_detached_filter input-field col s4" data-grid-name="grid">
+
+          <label for="grid_f_useful_life">Vida util</label>
+          
+          <input type="text" name="grid[f][useful_life]" id="grid_f_useful_life" value="<%= 
+                  if (params and params[:grid] and params[:grid][:f] and params[:grid][:f][:useful_life])
+                    params[:grid][:f][:useful_life]
+                  else
+                    ''
+                  end %>" size="8">
+
+        </div>
+        
+
+      </div>
+
+      <div class="col s5 row right-align">
+
+        <button class="waves-effect waves-light btn wg-external-submit-button maincontent__cleanfiltersbutton inline-block vertical-align-middle" data-grid-name="grid"><i class="fa fa-filter"></i> Filtrar</button>
+
+      </div>
+
+      <span class="col s2">&nbsp;</span>
+
+      <div class="row col s5">
+
+        <button class="waves-effect waves-light btn wg-external-reset-button maincontent__cleanfiltersbutton inline-block vertical-align-middle" data-grid-name="grid"><i class="fa fa-recycle"></i> Limpiar Filtros</button>
+
+      </div>
+      
+    </div>
+
+  <%= render 'grid'  %>
+
+
+  <!-- Float button -->
+  <%= link_to "+", 
+      new_asset_name_path, 
+        class:"btn-floating btn-large waves-effect waves-light green font-size-2em default-add-button tooltipped", 
+          data: {
+            position:"top", 
+            delay:"50", 
+            tooltip:"Nuevo Item"
+          } 
+    %>

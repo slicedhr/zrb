@@ -1,0 +1,68 @@
+<ul id="slide-out" class="collapsible side-nav" data-collapsible="expandable" data-mcs-theme="dark">
+ 	
+ 	<div class="sty-header-menu">
+      <%= image_tag 'icon512x512.png', class:"img-menu" %>
+      <h6 class="center-align"><%= current_user.full_name if user_signed_in? %>	</h6>
+    </div>
+    <li>
+	   <div class="collapsible-header" >
+	     <i class="fa fa-home sty-icon-menu"></i><a href="/" class="sty-menu-caja-inicio">Inicio</a>
+	   </div>
+    </li>
+    <li>
+      <div class="collapsible-header">
+      	<i class="fa fa-newspaper-o sty-icon-menu"></i> Consultas</div>
+      <div class="collapsible-body sty-cont-menu">
+        <%= link_to af_assets_path do  %>
+          Activos
+        <% end %>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header">
+        <i class="fa fa-book sty-icon-menu"></i> Informes</div>
+      <div class="collapsible-body sty-cont-menu">
+        <a href="#">Entrega de activos</a>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header" >
+        <i class="fa fa-sign-in sty-icon-menu"></i> Ingresos</div>
+      <div class="collapsible-body sty-cont-menu">
+        <a href="#" class="">Capturar</a>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header">
+        <i class="fa fa-cogs sty-icon-menu"></i> Parametrización</div>
+      <div class="collapsible-body sty-cont-menu">
+    		<%= link_to root_categories_path do %>
+    			  Categorías Raiz
+    		<% end %>
+        <%= link_to cities_path do %>
+            Ciudades
+        <% end %>
+        <%= link_to accounting_classifications_path do %>
+           Cuentas Contables
+        <% end %>
+        <%= link_to custodians_path do %>
+           Custodios
+        <% end %>
+        <%= link_to asset_names_path do %>
+           Nombres de Activos
+        <% end %>
+        <%= link_to brands_path do %>
+           Marcas
+        <% end %>
+        <%= link_to suppliers_path do %>
+           Proveedores
+        <% end %>
+        <%= link_to subsidiaries_path do %>
+           Sucursales
+        <% end %>
+        <%= link_to internal_locations_path do %>
+           Ubicaciones Internas
+        <% end %>
+      </div>
+    </li>
+</ul>

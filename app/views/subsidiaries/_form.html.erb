@@ -1,0 +1,37 @@
+<%= form_for(@subsidiary) do |f| %>
+
+
+  <div class="sty-sucur z-depth-1">
+      <h5 class="sty-new-ubi-header">Sucursal <i class="fa fa-building-o sty-icon-header-for"></i></h5>
+        <div class="input-field sty-new-ubi-caja">
+          <%= f.label :address, 'Dirección' %>
+          <%= f.text_field :address %>
+        </div>
+        <div class="input-field sty-new-ubi-caja">
+          <%= f.collection_select :city_id, City.all, :id, :name, include_blank: 'Selecciona una ciudad', class: "form-control" %>
+          <%= f.label :city_id, 'Ciudad' %>
+        </div>
+        <div class="row">
+          <div class="col s5 right-align btn-atras-for">
+            <%= link_to subsidiaries_path, class: "waves-effect waves-light btn red" do %>
+              <i class="fa fa-share-square-o"></i> Atras
+            <% end %>
+          </div>
+          <span class="col s1">&nbsp;</span>
+          <div class="col s5 left-align">
+            <button type="submit" class="waves-effect waves-light btn green"><i class="fa fa-check-square-o"></i> Listo</button>
+          </div>
+        </div>
+  </div>
+<% end %>
+<div class="row mns-error center-align">
+  <% if @subsidiary.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% @subsidiary.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>

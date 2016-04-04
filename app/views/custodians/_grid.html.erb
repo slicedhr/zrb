@@ -1,0 +1,37 @@
+<%= grid(@custodians_grid, hide_reset_button: true, hide_submit_button: true, class: 'centered bordered striped highlight', show_filters: :when_filtered, upper_pagination_panel: false) do |g|
+
+	  g.column name: 'Nombres', attribute: 'full_name', filter: true, ordering: true, detach_with_id: :full_name_filter do |custodian|
+	    custodian.full_name
+	  end
+
+	  g.column name: 'Cargo', attribute: 'office_work', filter: true, ordering: true, detach_with_id: :office_work_filter do |custodian|
+	  	custodian.office_work
+	  end
+
+	  g.column name: 'Identificación', attribute: 'identification', filter: true, ordering: true, detach_with_id: :identification_filter do |custodian|
+	  	custodian.identification
+	  end
+	  g.column name: 'Teléfonos', attribute: 'phones', filter: true, ordering: true, detach_with_id: :phones_filter do |custodian|
+	  	custodian.phones
+	  end
+	  g.column name: 'Email', attribute: 'email', filter: true, ordering: true, detach_with_id: :email_filter do |custodian|
+	  	custodian.email
+	  end
+
+  	if !(params and params[:grid] and params[:grid][:export])
+
+	  # g.column class: 'td-button' do |brand|
+	  #   link_to '<i class="fa fa-book"></i>'.html_safe, brand, title: "Ver"
+	  # end
+
+	  g.column class: 'td-button' do |custodian|
+	    link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_custodian_path(custodian), title: "Editar"
+	  end
+
+	  g.column class: 'td-button' do |custodian|
+	    link_to '<i class="fa fa-trash-o"></i>'.html_safe, custodian, title: "Eliminar", method: :delete, data: { confirm: '¿Realmente deseas eliminar esto?' }
+	  end
+
+	end
+
+end -%>

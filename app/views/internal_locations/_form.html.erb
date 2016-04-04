@@ -1,30 +1,36 @@
 <%= form_for(@internal_location) do |f| %>
-  <% if @internal_location.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@internal_location.errors.count, "error") %> prohibited this internal_location from being saved:</h2>
 
+  <div class="sty-new-ubi z-depth-1">
+    <h5 class="sty-new-ubi-header">Ubicacion Interna <i class="fa fa-sitemap sty-icon-header-for"></i></h5>
+      <div class="input-field sty-new-ubi-caja">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+      <div class="row">
+          <div class="col s5 right-align btn-atras-for">
+            <%= link_to internal_locations_path, class: "waves-effect waves-light btn red" do %>
+              <i class="fa fa-share-square-o"></i> Atras
+            <% end %>
+          </div>
+          <span class="col s1">&nbsp;</span>
+          <div class="col s5 left-align">
+            <button type="submit" class="waves-effect waves-light btn green"><i class="fa fa-check-square-o"></i> Listo</button>
+          </div>
+        </div>
+  </div>
+  <% end %> 
+
+  <div class="row mns-error center-align">
+   <% if @internal_location.errors.any? %>
+    <div id="error_explanation">
       <ul>
       <% @internal_location.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
+</div>
+  
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="row">
 
-    <%= f.label :activated %><br>
-    <%= f.check_box :activated %>
-  </div>
-
-  <div class="row center-align">
-    <!-- <%= f.submit %> -->
-    <button type="submit" class="waves-effect waves-light btn btn-large"><i class="material-icons">input</i>Send</button>
-
-  </div
-
-<% end %>

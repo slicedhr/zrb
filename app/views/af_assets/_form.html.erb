@@ -1,0 +1,68 @@
+<%= form_for(@af_asset) do |f| %>
+  
+  <div class="sty-sucur z-depth-1">
+       <h5 class="sty-new-ubi-header">Activo <i class="fa fa-file-text-o sty-icon-header-for"></i></h5>
+    <div class="row">
+
+      <div class="input-field sty-new-ubi-caja col s8">
+        <%= f.collection_select :asset_name_id, AssetName.all, :id, :name, include_blank: 'Selecciona una item', class: "form-control" %>
+              <%= f.label :asset_name_id, 'Nombre' %>
+      </div>
+
+      <div class="input-field sty-new-ubi-caja col s8">
+       <select class="autocomplete" id="asset_name_atc"></select>
+       <label for="asset_name_atc"></label>
+      </div>
+
+      <div class="input-field sty-new-ubi-caja col s6">
+        <%= f.label :serial   %>
+        <%= f.text_field :serial  %>
+      </div>
+      
+      <div class="input-field sty-new-ubi-caja col s4">
+        <%= f.check_box :is_parent %>
+        <%= f.label :is_parent, '¿Es Padre?' %>
+      </div>
+
+
+      <div class="input-field sty-new-ubi-caja col s6">
+        <%= f.label :quantity, 'Cantidad' %>
+        <%= f.text_field :quantity  %>
+      </div>
+
+      <div class="input-field sty-new-ubi-caja col s6">
+        <%= f.label :current_plaque, 'Placa Actual' %>
+        <%= f.text_field :current_plaque  %>
+      </div>
+      <div class="input-field sty-new-ubi-caja col s6">
+        <%= f.label :af_asset_id, 'ID Padre' %>
+        <%= f.text_field :af_asset_id  %>
+      </div>
+      <div class="row sty-for-btns">
+            <div class="col s5 right-align btn-atras-for">
+              <%= link_to af_assets_path, class: "waves-effect waves-light btn red" do %>
+                <i class="fa fa-share-square-o"></i> Atras
+              <% end %>
+            </div>
+            <span class="col s1">&nbsp;</span>
+            <div class="col s5 left-align">
+              <button type="submit" class="waves-effect waves-light btn green"><i class="fa fa-check-square-o"></i> Listo</button>
+            </div>
+        </div>
+      </div>
+  </div>
+<% end %>
+
+    <div class="row mns-error center-align">
+    <% if @af_asset.errors.any? %>
+      <div id="error_explanation">
+        <ul>
+        <% @af_asset.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+

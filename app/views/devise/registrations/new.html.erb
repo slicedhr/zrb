@@ -1,29 +1,34 @@
-<h2>Sign up</h2>
-
+<div class="sty-registrar z-depth-2">
+<h5 class="sty-registrar-header"><i class="fa fa-user"></i> Registrate</h5>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+  <div class="sty-regis-mns-error"><%= devise_error_messages! %></div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+  <div class="input-field row sty-registrar-caja">
+    <label for="user_email">Email</label>
+    <input autofocus="autofocus" type="email" name="user[email]" id="user_email">
+  </div>
+  <div class="input-field row sty-registrar-caja">
+    <label for="full_name">Nombre</label>
+    <input type="text" name="user[full_name]" id="full_name">
   </div>
 
-  <div class="field">
+  <div class="input-field row sty-registrar-caja">
     <%= f.label :password %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
+    <% end %>
     <%= f.password_field :password, autocomplete: "off" %>
+    (8 caracteres minimo)
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
+  <div class="input-field row sty-registrar-caja">
+    <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+  <button class="btn waves-effect waves-light sty-recup-password-btn" type="submit" name="action"><i class="fa fa-sign-in"></i> Enviar
+  </button>
 <% end %>
-
+<br>
+<i class="fa fa-reply"></i>
 <%= render "devise/shared/links" %>
+</div>

@@ -1,0 +1,47 @@
+<%= form_for(@accounting_classification) do |f| %>
+
+  <div class="sty-new-mar z-depth-1">
+    <h5 class="sty-new-ubi-header">Cuenta contable <i class="fa fa-book sty-icon-header-for"></i></h5>
+    <div class="row">
+      <div class="input-field sty-new-ubi-caja col s6">
+        <%= f.label :account %>
+        <%= f.text_field :account %>
+      </div>
+      <div class="input-field sty-new-ubi-caja col s6">
+         <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+      <div class="input-field sty-new-ubi-caja col s6">
+        <%= f.label :ifrs_value %>
+        <%= f.text_field :ifrs_value %>
+      </div>
+      <div class="input-field sty-new-ubi-caja col s6">
+        <%= f.label :local_value %>
+        <%= f.text_field :local_value %>
+      </div>
+    </div>
+
+      <div class="row">
+          <div class="col s5 right-align btn-atras-for">
+            <%= link_to accounting_classifications_path, class: "waves-effect waves-light btn red" do %>
+              <i class="fa fa-share-square-o"></i> Atras
+            <% end %>
+          </div>
+          <span class="col s1">&nbsp;</span>
+          <div class="col s5 left-align">
+            <button type="submit" class="waves-effect waves-light btn green"><i class="fa fa-check-square-o"></i> Listo</button>
+          </div>
+      </div>
+<% end %>
+
+  <div class="row mns-error center-align">
+   <% if @accounting_classification.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% @accounting_classification.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>

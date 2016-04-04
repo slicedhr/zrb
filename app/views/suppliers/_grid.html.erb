@@ -1,0 +1,40 @@
+<%=
+	
+	grid(@suppliers_grid, hide_reset_button: true, hide_submit_button: true, class: 'centered bordered striped highlight', show_filters: :when_filtered, upper_pagination_panel: false) do |g|
+
+		g.column name: 'Nombre', attribute: 'name', filter: true, ordering: true, detach_with_id: :name_filter do |supplier|
+			supplier.name
+		end
+
+		g.column name: 'NIT', attribute: 'nit', filter: true, ordering: true, detach_with_id: :nit_filter do |supplier|
+		    supplier.nit
+		end
+
+		g.column name: 'Teléfonos', attribute: 'phone', filter: true, ordering: true, detach_with_id: :phone_filter do |supplier|
+		    supplier.phone
+		end
+
+		g.column name: 'Dirección', attribute: 'address', filter: true, ordering: true, detach_with_id: :address_filter do |supplier|
+		    supplier.address
+		end
+
+		if !(params and params[:grid] and params[:grid][:export])
+
+		  # g.column class: 'td-button' do |supplier|
+		  #   link_to '<i class="fa fa-book"></i>'.html_safe, supplier, title: "Ver"
+		  # end
+
+		  g.column class: 'td-button' do |supplier|
+		    link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_supplier_path(supplier), title: "Editar"
+		  end
+
+		  g.column class: 'td-button' do |supplier|
+		    link_to '<i class="fa fa-trash-o"></i>'.html_safe, supplier, title: "Eliminar", method: :delete, data: { confirm: '¿Realmente deseas eliminar esto?' }
+		  end
+
+		end
+
+
+	end
+
+%>

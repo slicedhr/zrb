@@ -1,0 +1,42 @@
+<ul id="dropdown1" class="dropdown-content sty-dropdown-content">
+    <li>
+      	<%= link_to destroy_user_session_path, method: :delete do %>
+  			<i class="fa fa-power-off"></i> Cerrar Sesión
+  		<% end %>
+  	</li>
+  </ul>
+
+  <nav class="header row">
+  	<div class="col s8 row">
+  		<a href="#" data-activates="slide-out" class="button-collapse left-menu-button">
+			<i class="fa fa-bars"></i>
+		</a>
+  	</div>
+
+  	<div class="col s4 right-align row header__icons">
+  	
+  		<div class="col s6">
+	<!-- 		<a href="#">
+				<i class="fa fa-envelope"></i>
+			</a>
+			<a href="#">
+				<i class="fa fa-bell"></i>
+			</a>
+  			 -->
+         &nbsp;
+  		</div>
+
+  		<div class="col s6">
+  			<ul class="hide-on-med-and-down">
+		      <li>
+			      <a class="dropdown-button sesion" href="#!" data-activates="dropdown1">
+			      <span class="ellipsis"><i class="fa fa-sort-desc"></i> <%= current_user.email %> </span>
+			      </a>
+		      </li>
+		    </ul>
+  		</div>
+
+  	</div>
+
+ </nav>
+  

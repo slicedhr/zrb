@@ -1,0 +1,23 @@
+<%= grid(@brands_grid, hide_reset_button: true, hide_submit_button: true, class: 'centered bordered striped highlight', show_filters: :when_filtered, upper_pagination_panel: false) do |g|
+
+	  g.column name: 'Nombre', attribute: 'name', filter: true, ordering: true, detach_with_id: :name_filter do |brand|
+	    brand.name
+	  end
+
+  	if !(params and params[:grid] and params[:grid][:export])
+
+	  # g.column class: 'td-button' do |brand|
+	  #   link_to '<i class="fa fa-book"></i>'.html_safe, brand, title: "Ver"
+	  # end
+
+	  g.column class: 'td-button' do |brand|
+	    link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_brand_path(brand), title: "Editar"
+	  end
+
+	  g.column class: 'td-button' do |brand|
+	    link_to '<i class="fa fa-trash-o"></i>'.html_safe, brand, title: "Eliminar", method: :delete, data: { confirm: '¿Realmente deseas eliminar esto?' }
+	  end
+
+	end
+
+end -%>

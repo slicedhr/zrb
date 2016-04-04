@@ -1,0 +1,50 @@
+  <%= form_for(@supplier) do |f| %>
+
+  <div class="sty-new-ubi z-depth-1">
+    <h5 class="sty-new-ubi-header">Proveedores <i class="fa fa-users sty-icon-header-for"></i></h5>
+    <div class="row">
+      <div class="input-field sty-new-ubi-caja col s6">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+      <div class="input-field sty-new-ubi-caja col s6">
+        <%= f.label :nit %>
+        <%= f.text_field :nit %>
+      </div>
+      <div class="input-field sty-new-ubi-caja col s6">
+        <%= f.label :phone %>
+        <%= f.text_field :phone %>
+      </div>
+      <div class="input-field sty-new-ubi-caja col s6">
+        <%= f.label :address %>
+        <%= f.text_field :address %>
+      </div>
+    </div>
+       <div class="row">
+          <div class="col s5 right-align btn-atras-for">
+            <%= link_to suppliers_path, class: "waves-effect waves-light btn red" do %>
+              <i class="fa fa-share-square-o"></i> Atras
+            <% end %>
+          </div>
+          <span class="col s1">&nbsp;</span>
+          <div class="col s5 left-align">
+            <button type="submit" class="waves-effect waves-light btn green"><i class="fa fa-check-square-o"></i> Listo</button>
+          </div>
+       </div>
+  </div>
+<% end %>
+
+
+<div class="row mns-error center-align">
+    <% if @supplier.errors.any? %>
+      <div id="error_explanation">
+        <%= pluralize(@supplier.errors.count, "error") %> prohibited this supplier from being saved:
+
+        <ul>
+        <% @supplier.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+</div>

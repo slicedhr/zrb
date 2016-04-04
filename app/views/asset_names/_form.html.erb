@@ -1,0 +1,68 @@
+<%= form_for(@asset_name) do |f| %>
+
+
+    <div class="sty-sucur z-depth-1">
+       <h5 class="sty-new-ubi-header">Nombre de activo <i class="fa fa-exclamation-circle sty-icon-header-for"></i></h5>
+      <div class=" row">
+          
+          <div class="input-field sty-new-ubi-caja  col s6">
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+          </div>
+          <div class="input-field sty-new-ubi-caja col s2">
+            <%= f.label :width %>
+            <%= f.text_field :width %>
+          </div>
+          <div class="input-field sty-new-ubi-caja col s2">
+            <%= f.label :height %>
+            <%= f.text_field :height %>
+          </div>
+          <div class="input-field sty-new-ubi-caja col s2">
+            <%= f.label :depth %>
+            <%= f.text_field :depth %>
+          </div>
+          <div class="input-field sty-new-ubi-caja col s6">
+            <%= f.label :source %>
+            <%= f.text_field :source %>
+          </div>
+          <div class="input-field sty-new-ubi-caja col s6">
+            <%= f.label :purchase_price %>
+            <%= f.text_field :purchase_price %>
+          </div>
+          <div class="input-field sty-new-ubi-caja col s6">
+            <%= f.collection_select :brand_id, Brand.all, :id, :name, include_blank: 'Selecciona un item', class: "form-control" %>
+            <%= f.label :brand_id, 'Marca' %>
+          </div>
+          <div class="input-field sty-new-ubi-caja col s6">
+            <%= f.collection_select :accounting_classification_id, AccountingClassification.all, :id, :name, include_blank: 'Selecciona un item', class: "form-control" %>
+            <%= f.label :brand_id, 'Cuenta Contable' %>
+          </div>
+          <div class="input-field sty-new-ubi-caja col s6">
+            <%= f.label :useful_life %>
+            <%= f.number_field :useful_life %>
+          </div>
+          <div class="row sty-for-btns col s12">
+            <div class="col s5 right-align btn-atras-for">
+              <%= link_to asset_names_path, class: "waves-effect waves-light btn red" do %>
+                <i class="fa fa-share-square-o"></i> Atras
+              <% end %>
+            </div>
+            <span class="col s1">&nbsp;</span>
+            <div class="col s5 left-align">
+              <button type="submit" class="waves-effect waves-light btn green"><i class="fa fa-check-square-o"></i> Listo</button>
+            </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+<div class="row mns-error center-align">
+  <% if @asset_name.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% @asset_name.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>

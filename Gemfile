@@ -10,15 +10,26 @@ gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+# gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
 gem 'devise'
-
-gem 'puma'
-
+# gem 'puma'
 gem 'stylus'
+gem 'materialize-sass'
+gem "wice_grid", '3.6.0.pre4'
+gem 'font-awesome-sass',  '~> 4.3'
+gem 'jquery-turbolinks'
+gem "paperclip", "3.4.2"
+gem 'sprockets-es6'
+gem 'babel-transpiler', github: 'babel/ruby-babel-transpiler'
+gem 'rails_admin'
+# gem 'rails_admin_flatly_theme', github: 'konjoot/rails_admin_flatly_theme'
+gem "rails_admin_import", "~> 1.2"
+gem "select2-rails"
+
+# gem 'font-awesome-sass'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -46,6 +57,7 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+  gem "better_errors"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -9,7 +9,471 @@
  * compiled file so the styles you add here take precedence over styles defined in any styles
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
- *
  *= require_tree .
+ *= require select2
  *= require_self
  */
+ .text-lightgreen{
+ 	color: #27ae60;
+ }
+ .text-darkgreen{
+ 	color: #16a085;
+ }
+ .sty-login{
+    left: 50%;
+    margin-left: -217.5px;
+    margin-top: 13%;
+    padding-bottom: 10px;
+    padding-top: 8px;
+    position: absolute;
+    text-align: center;
+    width: 435px;
+ }
+
+ .sty-login .header{
+ 	background: #0069EC;
+    color: white;
+    padding: 10px;
+    margin-top: 0px;
+ }
+ .sty-login .img{
+ 	width: 100px;
+  position: absolute;
+  top: -70px;
+  left: 300px;
+  z-index: 2;
+ }
+.sty-login .btn{
+	background: #029EE7;
+	width: 400px;
+}
+.fondo{
+	width: 1343px;
+	position: absolute;
+	margin-top: -300px;
+}
+.tam-footer{
+	text-align: center;
+}
+.footer-sty{
+	background: #0069EC !important ;
+  width:100%;
+}
+.margin-ul{
+	margin:0;
+	padding: 10px;
+
+}
+.header{
+	background: #0069EC !important;
+}
+.header__icons a{
+	display: inline-block;
+	margin: auto 5px;
+}
+.header .sesion{
+	margin-right: 35px;
+	position: relative;
+}
+.header .sesion i{
+	height: 10px;
+    position: absolute;
+    right: -12px;
+    top: 34%;
+}
+.app-alerts{
+	background: white;
+	color: #515151;
+	left:0 ;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	width: 100%;
+	z-index: 2;
+}
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* IE/Edge */
+  user-select: none;           /* non-prefixed version, currently
+                                  not supported by any browser */
+                                  pointer-events: none;
+}
+.sty-recup-password{
+    width: 420px;
+    text-align: center;
+    height: 235px;
+    margin-top: 75px;
+    padding-top: 10px;
+}
+.sty-recup-password-header{
+    background: #02A7F2;
+    padding: 10px;
+    margin-top: -3px;
+    color: white;
+}
+.sty-recup-password-email{
+	width: 372px;
+    margin-left: 20px;
+    margin-top: 25px;
+}
+.sty-recup-password-btn{
+	margin-top: 10px;
+	background: #02A7F2 !important;
+}
+.sty-recup-mns-error li, .sty-recup-mns-error h2{
+	font-size: 20px !important;
+    background: white !important;
+    color: red !important;
+    position: absolute !important;
+    top: 85px !important;
+}
+.sty-caja-login{
+    width: 380px;
+    margin-left: 30px;
+}
+.login-space-guar{
+  margin-top: 10px;
+}
+.login-space-olv{
+  margin-top: 3px;
+}
+.sty-registrar{
+  text-align: center;
+  width: 500px;
+  margin: 4% 30%;
+  padding-bottom: 15px;
+}
+.sty-registrar-header{
+    background: #02A7F2;
+    padding: 8px;
+    color: white;
+    margin-top: 0px;
+}
+.sty-registrar-caja{
+  width: 375px;
+}
+.alert-login{
+    background: #02A7F2;
+    color: white;
+    padding: 8px;
+    margin: 0;
+}
+.notice-login{
+  margin:0;
+}
+.sty-regis-password-btn{
+  margin-top: 10px;
+  background: #02A7F2 !important;
+}
+.sty-regis-mns-error li, .sty-regis-mns-error h2{
+  font-size: 20px !important;
+  background: white !important;
+  color: red !important;
+  position: absolute !important;
+  top: 66px !important;
+}
+.sty-new-ubi{
+  border-radius: 6px 6px 5px 5px;
+  background: white;
+  width: 42% !important;
+  margin: 0 auto;
+  padding-bottom: 1px;
+  margin-top: 5%;
+  margin-bottom: 3%;
+}
+.sty-new-ubi-caja{
+  width: 500px;
+  margin-left:28px;
+}
+.sty-new-ubi-btn{
+  margin-left: 336px;
+  margin-top: 10px;
+  background: #02A7F2 !important;
+}
+.sty-new-ubi-header{
+    background-color: #2c3e50;
+    background-image: url("brushed-alum.png");
+    padding: 8px;
+    color: white;
+    margin-top: 0px;
+    text-align: center;
+    border-radius: 5px 5px 0px 0px;
+    overflow: hidden;
+    position: relative;
+}
+.sty-new-ubi-btn-back{
+  background: #02A7F2 !important;
+}
+.sty-new-ubi-btn-back a{
+  color: white !important;
+}
+.sty-icon-header-for{
+  position: absolute;
+  font-size: 89px;
+  margin-left: 28px;
+  color: rgba(255, 255, 255, 0.15);
+  bottom: -23px;
+}
+
+.sty-btn-sucur{
+  background: #02A7F2 !important;
+}
+.sty-sucur{
+  border-radius: 6px 6px 5px 5px;
+  background: white;
+  width: 42% !important;
+  margin: 0 auto;
+  padding-bottom: 1px;
+  margin-top: 5%;
+  margin-bottom: 3%;
+}
+body{
+  position: relative;
+}
+.mns-error{
+    font-size: 22px;
+    color: red;
+}
+.sty-new-mar{
+  border-radius: 6px 6px 5px 5px;
+  background: white;
+  width: 42% !important;
+  margin: 0 auto;
+  margin-top: 5%;
+}
+.img-menu{
+  width: 100px; 
+  margin-top: 11%;
+  margin-left: 30%;
+}
+
+.sty-h-menu{
+  margin-left: 7px;
+}
+
+.sty-cont-menu-des{
+  display: block;
+  width: 222px;
+  text-align: center;
+}
+.sty-cont-menu, .sty-cont-menu a:hover{
+   background: #e0f7fa;
+   color: black;
+}
+.side-nav li {
+  float: none;
+  padding: 0;
+  line-height: 40px;
+}
+.side-nav a{
+  color: #444;
+  display: block;
+  font-size: 1rem;
+  line-height: 3;
+  height: 40px;
+  padding-left: 60px;
+}
+.sty-icon-menu{
+  font-size: 20px !important;
+}
+.side-nav .collapsible-header {
+    background-color: transparent;
+    border: none;
+    line-height: inherit;
+    height: inherit;
+    margin: 0;
+}
+.collapsible {
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+}
+.sty-icon-collapsible{
+  font-size: 10px;
+}
+.sty-menu-caja-inicio{
+  padding-left: 0 !important;
+}
+.sty-filtros{
+  width: 90%;
+}
+.sty-dropdown-content {
+    width: 162px !important;
+    top: 44px !important;
+    left: 1195.47px !important;
+}
+.dropdown-content li>a, .dropdown-content li>span{
+  color:#34495E !important;
+}
+.btn-atras-for{
+  margin-left: 4% !important;
+  margin-bottom: 3%;
+}
+.sty-for-btns{
+  height: 0;
+}
+/*syle tabs*/
+.sty-tab{
+  background: white;
+  width: 80%;
+  margin-top: 3%;
+}
+.tabs{
+  overflow:hidden;
+}
+.tabs .tab a {
+    color: white;
+    background: rgba(32, 80, 129, 0.67);
+}
+.tabs .indicator {
+  background: #fb8c00;
+}
+.tabs .active{
+  background: #34495e !important;
+  color: white !important;
+}
+.tabs .tab a:hover {
+    background: rgba(251, 140, 0, 0.52);
+    color: black;
+}
+.sty-perfil-deta{
+  height: 49px;
+
+}
+.sty-perfil-foto{
+  height: 200px;
+}
+.sty-perfil-hijo{
+  height: 49px;
+  padding-top: 14px !important;
+}
+.sty-perfil-hijo:hover{
+  background: #bdc3c7;
+  color: white;
+}
+.sty-tab-border{
+  border-right: solid 1px white;
+}
+.sty-img-perfil{
+    width: 244px;
+    height: 187px;
+}
+#materialbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(41, 41, 41, 0.85);
+    z-index: 999;
+    will-change: opacity;
+}
+.sty-btn-home{
+  height: 150px;
+  width: 400px;
+  margin:1%;
+}
+.sty-icon-caja-home{
+  font-size: 950% !important;
+  top: 40%;
+  left: 4%;
+  color: rgba(255, 255, 255, 0.27);
+  position: absolute;
+}
+.sty-text-caja-home{
+  font-size: 22px;
+  position: relative;
+  top: 39%;
+  left: 19%;
+}
+.sty-row{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.sty-btn-param{
+  height: 60px;
+  width: 300px;
+  margin:2%;
+}
+.sty-icon-caja-param{
+  font-size: 322% !important;
+  top: 23%;
+  left: 7%;
+  color: rgba(255, 255, 255, 0.27);
+  position: absolute;
+}
+.sty-text-caja-param{
+  font-size: 22px;
+  position: relative;
+  top: 23%;
+  left: 5%;
+}
+.sty-text-caja-param-large{
+  font-size: 18px;
+  position: relative;
+  top: 23%;
+  left: 10%;
+}
+.sty-home-foot{
+  margin-bottom: 4%;
+}
+.sty-home-head{
+  margin-top: 4%;
+}
+.color-black{
+  color: black;
+  margin-top: -3% !important;
+}
+.btn-atras-baja{
+  margin-left: 4% !important;
+}
+.sty-modal2-header{
+    background-color: #2c3e50;
+    background-image: url("brushed-alum.png");
+    padding: 8px;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    margin-top: 0;
+}
+.sty-btn-baja{
+  margin-left: 45%;
+  margin-bottom: 1%;
+}
+.sty-text-btn-baja{
+  color: white;
+}
+.modal .modal-content {
+  padding: 0;
+}
+.sty-in-session{
+  position: absolute;
+  margin-left: 41%;
+  margin-top: 20%;
+  font-size: 32px;
+  color: white;
+  z-index: 2;
+}
+.videoblacklayer{
+  background: rgba(0,0,0,.7);
+  position: fixed;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+.sty-video-session{
+  width: 100%;
+}
+.sty-img-session{
+  position: absolute;
+  width: 10%;
+  margin-left: 45%;
+  margin-top: 10%;
+  z-index:2;
+}

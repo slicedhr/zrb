@@ -1,14 +1,28 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
+  resources :af_assets
+
+  root 'home#index'
+  get 'af_asset/:id/af_assets', to: 'af_assets#get_children'
+  get 'parametrization', to: 'home#parametrization'
+
+  resources :photos
+  resources :suppliers
+  resources :accounting_classifications
+  resources :custodians
+  resources :asset_names
+  resources :brands
+  resources :subsidiaries
+  resources :cities
   resources :internal_locations
   resources :root_categories
-  get 'home/index'
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

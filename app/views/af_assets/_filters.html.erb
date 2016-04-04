@@ -1,0 +1,187 @@
+<div class="row maincontent__hiddenfilters">
+
+    <div class="col s12 maincontent__toolbuttons center-align">
+      
+      <h3 class="inline-block vertical-align-middle">Filtrar </h3>
+
+      <span>&nbsp;</span>
+      <span>&nbsp;</span>
+      <span>&nbsp;</span>
+
+      <button class="waves-effect waves-light btn wg-external-csv-export-button maincontent__exportbutton inline-block vertical-align-middle" data-grid-name="grid"><i class="fa fa-file-excel-o"></i> Exportar a Excel</button>
+      
+    </div>
+
+    
+
+    <div class="row sty-filtros">
+      
+      <div class="wg-detached-filter grid_detached_filter input-field col s4" data-grid-name="grid">
+
+        <label for="grid_f_asset_names_joined">Nombre</label>
+
+        <input type="text" name="grid[f]['asset_names.joined']" id="grid_f_asset_names_joined" 
+            value="<%= 
+                if (params and params[:grid] and params[:grid][:f] and params[:grid][:f]['asset_names.joined'])
+                  params[:grid][:f]['asset_names.joined']
+                else
+                  ''
+                end %>" size="8">
+      </div>
+
+      <div class="wg-detached-filter grid_detached_filter input-field col s4" data-grid-name="grid">
+
+        <label for="grid_f_serial">Serial</label>
+
+        <input type="text" name="grid[f]['serial']" id="grid_f_serial" 
+            value="<%= 
+                if (params and params[:grid] and params[:grid][:f] and params[:grid][:f]['serial'])
+                  params[:grid][:f]['serial']
+                else
+                  ''
+                end %>" size="8">
+      </div>
+
+      <div class="wg-detached-filter grid_detached_filter input-field col s4" data-grid-name="grid">
+
+        <label for="grid_f_model">Modelo</label>
+
+        <input type="text" name="grid[f]['model']" id="grid_f_model" 
+            value="<%= 
+                if (params and params[:grid] and params[:grid][:f] and params[:grid][:f]['model'])
+                  params[:grid][:f]['model']
+                else
+                  ''
+                end %>" size="8">
+      </div>
+
+      <div class="wg-detached-filter grid_detached_filter input-field col s4" data-grid-name="grid">
+
+        <label for="grid_f_current_plaque">Placa Actual</label>
+
+        <input type="text" name="grid[f]['current_plaque']" id="grid_f_current_plaque" 
+            value="<%= 
+                if (params and params[:grid] and params[:grid][:f] and params[:grid][:f]['current_plaque'])
+                  params[:grid][:f]['current_plaque']
+                else
+                  ''
+                end %>" size="8">
+      </div>
+
+      <div class="wg-detached-filter grid_detached_filter input-field col s4" data-grid-name="grid">
+
+        <label for="grid_f_old_plaque">Placa Antigua</label>
+
+        <input type="text" name="grid[f]['old_plaque']" id="grid_f_old_plaque" 
+            value="<%= 
+                if (params and params[:grid] and params[:grid][:f] and params[:grid][:f]['old_plaque'])
+                  params[:grid][:f]['old_plaque']
+                else
+                  ''
+                end %>" size="8">
+      </div>
+
+      <div class="wg-detached-filter grid_detached_filter input-field col s4" data-grid-name="grid">
+
+        <label for="grid_f_tech_plaque">Placa Tecnológica</label>
+
+        <input type="text" name="grid[f]['tech_plaque']" id="grid_f_tech_plaque" 
+            value="<%= 
+                if (params and params[:grid] and params[:grid][:f] and params[:grid][:f]['tech_plaque'])
+                  params[:grid][:f]['tech_plaque']
+                else
+                  ''
+                end %>" size="8">
+      </div>
+
+	    <div class="wg-detached-filter grid_detached_filter input-field col s4" data-grid-name="grid">
+
+	        <label for="grid_f_custodians_full_name">Custodio</label>
+
+	        <input type="text" name="grid[f]['custodians.full_name']" id="grid_f_custodians_full_name" 
+	            value="<%= 
+	                if (params and params[:grid] and params[:grid][:f] and params[:grid][:f]['custodians.full_name'])
+	                  params[:grid][:f]['custodians.full_name']
+	                else
+	                  ''
+	                end %>" size="8">
+	    </div>
+
+        <div class="wg-detached-filter grid_detached_filter input-field col s4" data-grid-name="grid">
+
+	        <label for="grid_f_internal_locations_name">Ubicación Interna</label>
+
+	        <input type="text" name="grid[f]['internal_locations.name']" id="grid_f_internal_locations_name" 
+	            value="<%= 
+	                if (params and params[:grid] and params[:grid][:f] and params[:grid][:f]['internal_locations.name'])
+	                  params[:grid][:f]['internal_locations.name']
+	                else
+	                  ''
+	                end %>" size="8">
+	    </div>
+
+	    <div class="wg-detached-filter grid_detached_filter input-field col s4" data-grid-name="grid">
+
+	        <label for="grid_f_subsidiaries_address">Sucursal</label>
+
+	        <input type="text" name="grid[f]['subsidiaries.address']" id="grid_f_subsidiaries_address" 
+	            value="<%= 
+	                if (params and params[:grid] and params[:grid][:f] and params[:grid][:f]['subsidiaries.address'])
+	                  params[:grid][:f]['subsidiaries.address']
+	                else
+	                  ''
+	                end %>" size="8">
+	    </div>
+
+
+
+      <div class="wg-detached-filter grid_detached_filter input-field col s4" data-grid-name="grid">
+
+        <select id="grid_f_brands_name" onchange="setSelectValue('grid_f_brands_name', this)" value="<%=
+              if (params and params[:grid] and params[:grid][:f] and params[:grid][:f]['brands.name'])
+                  params[:grid][:f]['brands.name']
+                else
+                  ''
+                end  %>">
+
+            <% Brand.all.each do |brand| %>
+
+              <option value="<%= brand.name %>" 
+
+                    <%=
+
+                      (params and params[:grid] and params[:grid][:f] and params[:grid][:f]['brands.name'] and (params[:grid][:f]['brands.name'] == brand.name)) ?
+
+                        'selected'
+
+                        :
+
+                        ''
+
+                    %>
+
+                ><%= brand.name %></option>
+
+            <% end %> 
+
+        </select>
+        
+        <label for="grid_f_brands_name">Marca</label>
+
+      </div>
+
+
+</div>
+
+<div class="col s5 row right-align">
+
+  <button class="waves-effect waves-light btn wg-external-submit-button maincontent__cleanfiltersbutton inline-block vertical-align-middle" data-grid-name="grid"><i class="fa fa-filter"></i> Filtrar</button>
+
+</div>
+<span class="col s2">&nbsp;</span>
+
+<div class="row col s5">
+
+  <button class="waves-effect waves-light btn wg-external-reset-button maincontent__cleanfiltersbutton inline-block vertical-align-middle" data-grid-name="grid"><i class="fa fa-recycle"></i> Limpiar Filtros</button>
+
+</div>

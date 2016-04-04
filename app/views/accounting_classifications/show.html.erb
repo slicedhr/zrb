@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Account:</strong>
+  <%= @accounting_classification.account %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @accounting_classification.name %>
+</p>
+
+<p>
+  <strong>Ifrs value:</strong>
+  <%= @accounting_classification.ifrs_value %>
+</p>
+
+<p>
+  <strong>Local value:</strong>
+  <%= @accounting_classification.local_value %>
+</p>
+
+<%= link_to 'Edit', edit_accounting_classification_path(@accounting_classification) %> |
+<%= link_to 'Back', accounting_classifications_path %>

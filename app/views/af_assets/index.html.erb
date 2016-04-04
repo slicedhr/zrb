@@ -1,0 +1,113 @@
+<div class="header-section row">
+    <h1>Activos</h1>
+    <i class="fa fa-file-text-o header-section__icon"></i>
+
+  
+</div>
+
+  <a class="btn-floating btn-large waves-effect waves-light blue font-size-2em default-search-button tooltipped" data-position="top" data-delay="50" data-tooltip="Filtrar" href="javascript:void(0)" data-slide-target=".tools-buttons"><i class="fa fa-wrench"></i></a>
+
+<div class="maincontent background-white">
+
+    <div class="tools-buttons">
+
+      <div class="tool-buttons__buttons-container">
+
+        <a class="waves-effect waves-light btn green" data-slide-target=".maincontent__hiddenfilters"><i class="fa fa-search"></i> Filtros</a>
+
+        <a class="waves-effect waves-light btn blue" data-slide-target=".tool-buttons__by-account">Informe Por Cuenta <i class="fa fa-th-list"></i></a>
+
+        <a class="waves-effect waves-light btn red" data-add-remove-class data-add-remove-class-target=".columns_sh" data-add-remove-class-name="visible">Mostrar/Ocultar Columnas <i class="fa fa-columns"></i></a>
+
+        <!-- <a class="waves-effect waves-light btn red">Stuff</a> -->
+        
+      </div>
+      <div class="tool-buttons__by-account">
+          
+          <form name="by-account" class="tool-buttons__by-account__form">
+          
+            <div class="row">
+
+              <div class="col s2">&nbsp;</div>
+
+              <div class="input-field col s4">
+                <input type="text" class="datepicker" name="from" id="from">
+                <label for="from">Desde</label>
+              </div>
+
+              <div class="input-field col s4">
+                <input type="text" name="to" class="datepicker" id="to">
+                <label for="to">Hasta</label>
+              </div>
+
+              <div class="col s2">&nbsp;</div>
+
+            </div>
+              
+            <div class="row">
+
+              <div class="col s2">&nbsp;</div>
+
+              <div class="input-field col s4">
+
+                <select name="accounting_classif" id="accounting_classif">
+                  <option value="">Seleccionar</option>
+                  <%= @accounting_classifications.each do |account| %>
+                    <option value="<%= account.id %>"><%= account.name  %></option>
+                  <% end %>
+                </select>
+
+                <label for="accounting_classif">Cuenta contable</label>
+
+              </div>
+
+              <div class="row col s4">
+                  <div class="col s2">
+                    <input name="local_or_nif" type="radio" id="nif" />
+                    <label for="nif">NIF</label>
+                  </div>
+                  <div class="col s2">
+                    <input name="local_or_nif" type="radio" id="local" />
+                    <label for="local">Local</label>
+                  </div>
+              </div>
+
+              <div class="col s2">&nbsp;</div>
+
+            </div>
+
+            <div class="row center-align">
+              <button type="submit" class="waves-effect waves-light btn background-darkblue">Consultar</button>
+            </div>
+            
+          </form>
+      </div>
+
+      <%= render 'filters'  %>
+        
+      </div>
+  
+  </div>
+
+  <div class="columns_sh z-depth-4">
+    <div class="columns_sh__header center-align">
+      <h6>Mostrar/Ocultar <i class="fa fa-times" data-add-remove-class data-add-remove-class-target=".columns_sh" data-add-remove-class-name="visible"></i></h6>
+    </div>
+    <div class="columns_sh__content">
+      <%= render 'columns_sh'  %>
+    </div>
+  </div>
+
+  <%= render 'grid'  %>
+
+
+  <!-- Float button -->
+  <%= link_to "+", 
+      new_af_asset_path, 
+        class:"btn-floating btn-large waves-effect waves-light green font-size-2em default-add-button tooltipped", 
+          data: {
+            position:"top", 
+            delay:"50", 
+            tooltip:"Nuevo Item"
+          } 
+    %>

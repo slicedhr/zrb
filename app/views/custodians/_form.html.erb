@@ -1,0 +1,51 @@
+<%= form_for(@custodian) do |f| %>
+  
+ <div class="sty-new-ubi z-depth-1">
+  <h5 class="sty-new-ubi-header">Custodios <i class="fa fa-user sty-icon-header-for"></i></h5>
+    <div class="row">
+      <div class="input-field sty-new-ubi-caja col s12">
+        <%= f.label :full_name %>
+        <%= f.text_field :full_name %>
+      </div>
+      <div class="input-field sty-new-ubi-caja col s6">
+        <%= f.label :office_work %>
+        <%= f.text_field :office_work %>
+      </div>
+      <div class="input-field sty-new-ubi-caja col s6">
+        <%= f.label :identification %>
+        <%= f.text_field :identification %>
+      </div>
+      <div class="input-field sty-new-ubi-caja col s6">
+        <%= f.label :phones %>
+        <%= f.text_field :phones %>
+      </div>
+      <div class="input-field sty-new-ubi-caja col s6">
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+      </div>
+    </div>
+      <div class="row sty-for-btns">
+          <div class="col s5 right-align btn-atras-for">
+            <%= link_to custodians_path, class: "waves-effect waves-light btn red" do %>
+              <i class="fa fa-share-square-o"></i> Atras
+            <% end %>
+          </div>
+          <span class="col s1">&nbsp;</span>
+          <div class="col s5 left-align">
+            <button type="submit" class="waves-effect waves-light btn green"><i class="fa fa-check-square-o"></i> Listo</button>
+          </div>
+    </div>
+    <% end %>
+
+
+<div class="row mns-error center-align">
+  <% if @custodian.errors.any? %>
+      <div id="error_explanation">
+        <ul>
+        <% @custodian.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+</div>

@@ -1,0 +1,66 @@
+<div class="header-section">
+    <h1>Parametrización</h1>
+    <i class="fa fa-cogs header-section__icon"></i>
+
+  
+</div>
+<div class="maincontent background-white">
+  <div class="sty-row">
+      <%= link_to root_categories_path,
+        class: "waves-effect waves-light btn cyan darken-3 sty-btn-param" do %>
+      <i class="fa fa-object-group sty-icon-caja-param"></i>
+      <span class="sty-text-caja-param-large">Categorías Raíz</span> 
+      <% end %>
+
+      <%= link_to cities_path, class: "waves-effect waves-light btn orange sty-btn-param" do %>
+      <i class="fa fa-map-marker sty-icon-caja-param"></i> 
+      <span class="sty-text-caja-param">Ciudades</span>
+      <% end %>
+
+      <%= link_to accounting_classifications_path,
+        class: "waves-effect waves-light btn red darken-3 sty-btn-param" do %>
+      <i class="fa fa-book sty-icon-caja-param"></i>
+      <span class="sty-text-caja-param-large">Cuentas Contables</span> 
+      <% end %>
+  </div>
+
+  <div class="sty-row">
+      <%= link_to custodians_path, 
+        class: "waves-effect waves-light btn  blue-grey sty-btn-param" do %>
+      <i class="fa fa-user sty-icon-caja-param"></i> 
+      <span class="sty-text-caja-param">Custodios</span>
+      <% end %>
+
+      <%= link_to asset_names_path,
+        class: "waves-effect waves-light btn blue sty-btn-param" do %>
+      <i class="fa fa-exclamation-circle sty-icon-caja-param"></i>
+      <span class="sty-text-caja-param-large">Nombres de Activos</span> 
+      <% end %>
+
+      <%= link_to brands_path,
+       class: "waves-effect waves-light btn indigo darken-2 sty-btn-param" do %>
+      <i class="fa fa-bookmark-o sty-icon-caja-param"></i> 
+      <span class="sty-text-caja-param">Marcas</span>
+      <% end %>
+  </div>
+
+  <div class="sty-row">
+      <%= link_to suppliers_path,
+      class: "waves-effect waves-light btn brown sty-btn-param" do %>
+      <i class="fa fa-users sty-icon-caja-param"></i>
+      <span class="sty-text-caja-param">Proveedores</span> 
+      <% end %>
+
+      <%= link_to subsidiaries_path,
+        class: "waves-effect waves-light btn purple darken-2 sty-btn-param" do %>
+      <i class="fa fa-building-o sty-icon-caja-param"></i> 
+      <span class="sty-text-caja-param">Sucursales</span>
+      <% end %>
+
+      <%= link_to internal_locations_path,
+        class: "waves-effect waves-light btn green sty-btn-param" do %>
+      <i class="fa fa-sitemap sty-icon-caja-param"></i> 
+      <span class="sty-text-caja-param">Ubicaciones</span>
+      <% end %>
+  </div>
+</div>

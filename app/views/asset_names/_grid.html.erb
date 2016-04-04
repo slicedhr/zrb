@@ -1,0 +1,61 @@
+<%=
+	
+	grid(@asset_names_grid, hide_reset_button: true, hide_submit_button: true, class: 'centered bordered striped highlight', show_filters: :when_filtered, upper_pagination_panel: false) do |g|
+
+		g.column name: 'Nombre', attribute: 'name', filter: true, ordering: true, detach_with_id: :name_filter do |asset_name|
+			asset_name.name
+		end
+
+		g.column name: 'Alto', attribute: 'height', filter: true, ordering: true, detach_with_id: :height_filter do |asset_name|
+		    asset_name.height
+		end
+
+		g.column name: 'Ancho', attribute: 'width', filter: true, ordering: true, detach_with_id: :width_filter do |asset_name|
+		    asset_name.width
+		end
+
+		g.column name: 'Profundidad', attribute: 'depth', filter: true, ordering: true, detach_with_id: :depth_filter do |asset_name|
+		    asset_name.depth
+		end
+
+		g.column name: 'Concatenado', attribute: 'joined', filter: true, ordering: true, detach_with_id: :joined_filter do |asset_name|
+		    asset_name.joined
+		end
+
+		g.column name: 'Fuente', attribute: 'source', filter: true, ordering: true, detach_with_id: :_filter do |asset_name|
+		    !(params and params[:grid] and params[:grid][:export]) ? "<a href='#{asset_name.source}' target='_blank'>#{asset_name.source}</a>".html_safe : asset_name.source
+		end
+
+		g.column name: 'Precio de compra', attribute: 'purchase_price', filter: true, ordering: true, detach_with_id: :purchase_price_filter do |asset_name|
+		    number_to_currency(asset_name.purchase_price)
+		end
+
+		g.column name: 'Marca', attribute: 'name', assoc: :brand, filter: true, detach_with_id: :brand_filter do |asset_name|
+		    asset_name.brand.name if asset_name.brand
+		end
+
+
+		g.column name: 'Vida util', attribute: 'useful_life', filter: true, ordering: true, detach_with_id: :useful_life_filter do |asset_name|
+		    asset_name.useful_life
+		end
+
+		if !(params and params[:grid] and params[:grid][:export])
+
+		  # g.column class: 'td-button' do |asset_name|
+		  #   link_to '<i class="fa fa-book"></i>'.html_safe, asset_name, title: "Ver"
+		  # end
+
+		  g.column class: 'td-button' do |asset_name|
+		    link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_asset_name_path(asset_name), title: "Editar"
+		  end
+
+		  g.column class: 'td-button' do |asset_name|
+		    link_to '<i class="fa fa-trash-o"></i>'.html_safe, asset_name, title: "Eliminar", method: :delete, data: { confirm: '¿Realmente deseas eliminar esto?' }
+		  end
+
+		end
+
+
+	end
+
+%>

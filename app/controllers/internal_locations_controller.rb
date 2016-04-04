@@ -4,7 +4,16 @@ class InternalLocationsController < ApplicationController
   # GET /internal_locations
   # GET /internal_locations.json
   def index
-    @internal_locations = InternalLocation.all
+    @internal_locations_grid = initialize_grid(
+                      InternalLocation,
+                      name: 'grid',
+                      enable_export_to_csv: true,
+                      csv_field_separator: ';',
+                      csv_file_name: 'internal_locations',
+                      per_page: 30
+                  )
+    
+    export_grid_if_requested('grid' => 'grid')
   end
 
   # GET /internal_locations/1
@@ -28,7 +37,7 @@ class InternalLocationsController < ApplicationController
 
     respond_to do |format|
       if @internal_location.save
-        format.html { redirect_to @internal_location, notice: 'Internal location was successfully created.' }
+        format.html { redirect_to internal_locations_url, notice: 'Éxito al guardar.' }
         format.json { render :show, status: :created, location: @internal_location }
       else
         format.html { render :new }
@@ -42,7 +51,7 @@ class InternalLocationsController < ApplicationController
   def update
     respond_to do |format|
       if @internal_location.update(internal_location_params)
-        format.html { redirect_to @internal_location, notice: 'Internal location was successfully updated.' }
+        format.html { redirect_to internal_locations_url, notice: 'Éxito al guardar.' }
         format.json { render :show, status: :ok, location: @internal_location }
       else
         format.html { render :edit }
@@ -56,7 +65,7 @@ class InternalLocationsController < ApplicationController
   def destroy
     @internal_location.destroy
     respond_to do |format|
-      format.html { redirect_to internal_locations_url, notice: 'Internal location was successfully destroyed.' }
+      format.html { redirect_to internal_locations_url, notice: 'Item Eliminado.' }
       format.json { head :no_content }
     end
   end

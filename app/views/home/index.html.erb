@@ -1,2 +1,43 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<% if !user_signed_in? %>
+
+		<%= image_tag "icon512x512.png", class:"sty-img-session"  %>
+		
+
+		<%= link_to new_user_session_path, class:"sty-in-session" do %>
+			<i class="fa fa-sign-in"></i> Iniciar Sesión
+		<% end %>
+
+		<div class="videoblacklayer"></div>
+
+	<%= video_tag ["productivemornig.webm", "productivemornig.mp4"], class:"sty-video-session", :autoplay => true, :loop => true, autobuffer: true %>
+
+	
+
+<% else %>
+	
+		<div class="sty-row sty-home-head">
+	       <%= link_to af_assets_path, class: "waves-effect waves-light btn red sty-btn-home" do %>
+	        <i class="fa fa-newspaper-o sty-icon-caja-home"></i>
+	        <span class="sty-text-caja-home">Activos</span> 
+	       <% end %>
+
+	       <%= link_to "#", class: "waves-effect waves-light btn sty-btn-home" do %>
+	        <i class="fa fa-book sty-icon-caja-home"></i> 
+	        <span class="sty-text-caja-home">Informes</span>
+	       <% end %>
+	     </div>
+
+	     <div class="sty-row sty-home-foot">
+	       <%= link_to "#", class: "waves-effect waves-light btn blue sty-btn-home" do %>
+	        <i class="fa fa-sign-in sty-icon-caja-home"></i>
+	        <span class="sty-text-caja-home">Ingresos</span>
+	       <% end %>
+
+	       <%= link_to parametrization_path, class: "waves-effect waves-light btn orange sty-btn-home" do %>
+	        <i class="fa fa-cogs sty-icon-caja-home"></i>
+	        <span class="sty-text-caja-home">parametrizacion</span> 
+	       <% end %>
+	     </div>
+
+
+<% end %>

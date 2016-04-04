@@ -1,11 +1,15 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
+require 'csv'
+
+
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+# ENV['RAILS_ADMIN_THEME'] = 'rails_admin_flatly_theme'
 module Zuko
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -21,6 +25,11 @@ module Zuko
     # config.i18n.default_locale = :de
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
+
+    config.assets.paths << "#{Rails.root}/app/assets/videos"
+
+    config.assets.enabled = true
+
     config.active_record.raise_in_transactional_callbacks = true
   end
 end

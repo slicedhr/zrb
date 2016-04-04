@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @city.name %>
+</p>
+
+<!-- Contenedor sucursales -->
+<div class="row">
+
+	<% if @city.subsidiaries.empty? %>
+		<strong>No se han registrado sucursales para esta ciudad.</strong>
+	<% else %>
+
+		<h5>Sucursales</h5>
+
+		<% @city.subsidiaries.each do |subsidiary| %>
+
+			<ul>
+				<li><%= subsidiary.address %></li>				
+			</ul>
+
+		<% end %>
+
+	<% end %>
+
+</div>
+<!-- // Contenedor sucursales -->
+
+
+<%= link_to 'Editar', edit_city_path(@city) %> |
+<%= link_to 'Volver', cities_path %>

@@ -1,0 +1,23 @@
+<%= grid(@root_categories_grid, hide_reset_button: true, hide_submit_button: true, class: 'centered bordered striped highlight', show_filters: :when_filtered, upper_pagination_panel: false) do |g|
+
+	  g.column name: 'Categoría', attribute: 'text', filter: true, ordering: true, detach_with_id: :name_filter do |root_category|
+	    root_category.text
+	  end
+
+  	if !(params and params[:grid] and params[:grid][:export])
+
+	  # g.column class: 'td-button' do |brand|
+	  #   link_to '<i class="fa fa-book"></i>'.html_safe, brand, title: "Ver"
+	  # end
+
+	  g.column class: 'td-button' do |root_category|
+	    link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_root_category_path(root_category), title: "Editar"
+	  end
+
+	  g.column class: 'td-button' do |root_category|
+	    link_to '<i class="fa fa-trash-o"></i>'.html_safe, root_category, title: "Eliminar", method: :delete, data: { confirm: '¿Realmente deseas eliminar esto?' }
+	  end
+
+	end
+
+end -%>
