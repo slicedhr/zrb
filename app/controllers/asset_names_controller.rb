@@ -1,4 +1,5 @@
 class AssetNamesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_asset_name, only: [:show, :edit, :update, :destroy]
 
   # GET /asset_names
@@ -23,7 +24,6 @@ class AssetNamesController < ApplicationController
   # GET /asset_names/new
   def new
     @asset_name = AssetName.new
-    @brands = Brand.all
   end
 
   # GET /asset_names/1/edit

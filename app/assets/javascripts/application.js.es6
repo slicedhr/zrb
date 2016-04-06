@@ -39,9 +39,9 @@ $(document).ready( () => {
 
     setTimeout(() => {
 
-        $(".flash-message").slideUp().fadeOut();
+        $(".app-alerts").slideUp('slow').fadeOut('slow');
 
-    }, 5000);
+    }, 10000);
 
     $( ".datepicker" ).dateDropper({
         lang: 'es',

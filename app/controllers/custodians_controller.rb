@@ -1,5 +1,6 @@
 # encoding: utf-8
 class CustodiansController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_custodian, only: [:show, :edit, :update, :destroy]
 
   # GET /custodians

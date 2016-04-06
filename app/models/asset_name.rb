@@ -1,4 +1,5 @@
 class AssetName < ActiveRecord::Base
+  has_paper_trail
   belongs_to :brand
   belongs_to :supplier
   belongs_to :accounting_classification

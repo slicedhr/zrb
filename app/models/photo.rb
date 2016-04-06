@@ -1,3 +1,4 @@
 class Photo < ActiveRecord::Base
-	belongs_to :asset
+	has_paper_trail
+	belongs_to :af_asset
 end

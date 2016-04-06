@@ -1,44 +1,125 @@
 <%= form_for(@af_asset) do |f| %>
   
-  <div class="sty-sucur z-depth-1">
+  <div class="sty-sucur z-depth-1" style="width:95% !important">
        <h5 class="sty-new-ubi-header">Activo <i class="fa fa-file-text-o sty-icon-header-for"></i></h5>
     <div class="row">
 
-      <div class="input-field sty-new-ubi-caja col s8">
-        <%= f.collection_select :asset_name_id, AssetName.all, :id, :name, include_blank: 'Selecciona una item', class: "form-control" %>
-              <%= f.label :asset_name_id, 'Nombre' %>
-      </div>
-
-      <div class="input-field sty-new-ubi-caja col s8">
-       <select class="autocomplete" id="asset_name_atc"></select>
-       <label for="asset_name_atc"></label>
-      </div>
-
-      <div class="input-field sty-new-ubi-caja col s6">
-        <%= f.label :serial   %>
-        <%= f.text_field :serial  %>
-      </div>
-      
-      <div class="input-field sty-new-ubi-caja col s4">
+      <div class="input-field col s2">
         <%= f.check_box :is_parent %>
         <%= f.label :is_parent, '¿Es Padre?' %>
       </div>
 
+      <div class="input-field col s4">
+        <%= f.collection_select :asset_name_id, AssetName.all, :id, :name, include_blank: 'Selecciona un item', class: "form-control" %>
+              <%= f.label :asset_name_id, 'Nombre' %>
+      </div>
 
-      <div class="input-field sty-new-ubi-caja col s6">
+      <div class="input-field col s3">
+        <%= f.label :serial %>
+        <%= f.text_field :serial %>
+      </div>
+
+      <div class="input-field col s3">
+        <%= f.label :model %>
+        <%= f.text_field :model %>
+      </div>
+
+      <div class="input-field col s2">
+        <%= f.label :reference, 'Referencia' %>
+        <%= f.text_field :reference %>
+      </div>
+
+      <div class="input-field col s2">
+        <%= f.collection_select :brand_id, Brand.all, :id, :name, include_blank: 'Selecciona un item', class: "form-control" %>
+              <%= f.label :brand_id, 'Marca' %>
+      </div>
+    
+      <div class="input-field col s2">
         <%= f.label :quantity, 'Cantidad' %>
         <%= f.text_field :quantity  %>
       </div>
 
-      <div class="input-field sty-new-ubi-caja col s6">
+      <div class="input-field col s2">
+        <%= f.label :old_plaque, 'Placa Antigua' %>
+        <%= f.text_field :old_plaque  %>
+      </div>
+      <div class="input-field col s2">
         <%= f.label :current_plaque, 'Placa Actual' %>
         <%= f.text_field :current_plaque  %>
       </div>
-      <div class="input-field sty-new-ubi-caja col s6">
+      <div class="input-field col s2">
+        <%= f.label :tech_plaque, 'Placa Tecnología' %>
+        <%= f.text_field :tech_plaque  %>
+      </div>
+      
+      <div class="input-field col s2">
+        <%= f.label :purchase_value, 'Valor de compra' %>
+        <%= f.text_field :purchase_value  %>
+      </div>
+
+      <div class="input-field col s2">
+        <%= f.label :purchase_date, 'Fecha de compra' %>
+        <%= f.text_field :purchase_date, class: 'datepicker' %>
+      </div>
+
+      <div class="input-field col s2">
+        <%= f.collection_select :city_id, City.all, :id, :full_name, include_blank: 'Selecciona un item', class: "form-control" %>
+              <%= f.label :city_id, 'Ciudad' %>
+      </div>
+
+      <div class="input-field col s2">
+        <%= f.collection_select :subsidiary_id, Subsidiary.all, :id, :full_name, include_blank: 'Selecciona un item', class: "form-control" %>
+              <%= f.label :subsidiary_id, 'Sucursal' %>
+      </div>
+
+      <div class="input-field col s2">
+        <%= f.collection_select :custodian_id, Custodian.all, :id, :full_name, include_blank: 'Selecciona un item', class: "form-control" %>
+              <%= f.label :custodian_id, 'Custodio' %>
+      </div>
+
+      <div class="input-field col s2">
+        <%= f.collection_select :internal_location_id, InternalLocation.all, :id, :name, include_blank: 'Selecciona un item', class: "form-control" %>
+              <%= f.label :internal_location_id, 'Ubicación Interna' %>
+      </div>
+
+      <div class="input-field col s2">
+        <%= f.collection_select :root_category_id, RootCategory.all, :id, :text, include_blank: 'Selecciona un item', class: "form-control" %>
+              <%= f.label :root_category_id, 'Categoría Raíz' %>
+      </div>
+
+      <div class="input-field col s1">
+        <select name="af_asset[factor_m]" id="af_asset_factor_m">
+          <% (0.1...1).step(0.1).map do |n|  %>
+            <option value="<%= n.round(1) %>" <%= 'selected' if @af_asset[:factor_m] == n.round(1)  %>><%= n.round(1) %></option>
+          <% end %> 
+        </select>
+        <%= f.label :factor_m, 'Factor M' %>
+      </div>
+
+      <div class="input-field col s1">
+        <select name="af_asset[factor_r]" id="af_asset_factor_r">
+          <% (0.1...1).step(0.1).map do |n|  %>
+            <option value="<%= n.round(1) %>" <%= 'selected' if @af_asset[:factor_r] == n.round(1)  %>><%= n.round(1) %></option>
+          <% end %> 
+        </select>
+        <%= f.label :factor_r, 'Factor R' %>
+      </div>
+
+      <div class="input-field col s4">
+        <%= f.label :characteristics, 'Descripción' %>
+        <%= f.text_area :characteristics, class:'materialize-textarea'  %>
+      </div>
+
+      <div class="input-field col s4">
+        <%= f.label :comments, 'Comentarios' %>
+        <%= f.text_area :comments, class:'materialize-textarea'  %>
+      </div>
+
+      <div class="input-field col s6">
         <%= f.label :af_asset_id, 'ID Padre' %>
         <%= f.text_field :af_asset_id  %>
       </div>
-      <div class="row sty-for-btns">
+      <div class="row sty-for-btns col s12">
             <div class="col s5 right-align btn-atras-for">
               <%= link_to af_assets_path, class: "waves-effect waves-light btn red" do %>
                 <i class="fa fa-share-square-o"></i> Atras
@@ -49,8 +130,8 @@
               <button type="submit" class="waves-effect waves-light btn green"><i class="fa fa-check-square-o"></i> Listo</button>
             </div>
         </div>
-      </div>
   </div>
+      </div>
 <% end %>
 
     <div class="row mns-error center-align">

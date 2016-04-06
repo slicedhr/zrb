@@ -15,6 +15,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'devise'
+gem 'devise-i18n-views'
 # gem 'puma'
 gem 'stylus'
 gem 'materialize-sass'
@@ -27,6 +28,7 @@ gem 'babel-transpiler', github: 'babel/ruby-babel-transpiler'
 gem 'rails_admin'
 # gem 'rails_admin_flatly_theme', github: 'konjoot/rails_admin_flatly_theme'
 gem "rails_admin_import", "~> 1.2"
+gem 'rails_admin_history_rollback'
 gem "select2-rails"
 
 # gem 'font-awesome-sass'

@@ -19,12 +19,12 @@
       <div  class="col s3 sty-perfil-deta"><strong>Placa de tecnología: </strong><%= @af_asset.tech_plaque %></div>
       <div  class="col s3 sty-perfil-deta"><strong>Placa antigua: </strong><%= @af_asset.old_plaque %></div>
       <div  class="col s3 sty-perfil-deta"><strong>Placa nueva: </strong><%= @af_asset.current_plaque %></div>
-      <div  class="col s3 sty-perfil-deta"><strong>Asignado A: </strong><%= @af_asset.custodian.full_name if @af_asset.custodian %></div>
-      <div  class="col s3 sty-perfil-deta"><strong>Ubicacion interna: </strong><%= @af_asset.internal_location.name if @af_asset.internal_location %></div>
+      <div  class="col s3 sty-perfil-deta"><strong>Asignado a: </strong><%= @af_asset.custodian.full_name if @af_asset.custodian %></div>
+      <div  class="col s3 sty-perfil-deta"><strong>Ubicación interna: </strong><%= @af_asset.internal_location.name if @af_asset.internal_location %></div>
       <div  class="col s3 sty-perfil-deta"><strong>Factor M: </strong><%= @af_asset.factor_m %></div>
       <div  class="col s3 sty-perfil-deta"><strong>Proveedor: </strong><%= @af_asset.supplier.name if @af_asset.supplier %></div>
       <div  class="col s3 sty-perfil-deta"><strong>Fecha de compra: </strong><%= @af_asset.purchase_date %></div>
-      <div  class="col s3 sty-perfil-deta"><strong>Categoria raiz: </strong><%= @af_asset.root_category.text if @af_asset.root_category %></div>
+      <div  class="col s3 sty-perfil-deta"><strong>Categoría raíz: </strong><%= @af_asset.root_category.text if @af_asset.root_category %></div>
       <div  class="col s6 sty-perfil-deta"><strong>Descripcion tecnica: </strong><%= @af_asset.characteristics %></div>
       <div  class="col s6 sty-perfil-deta"><strong>Observaciones: </strong><%= @af_asset.comments %></div>
       <div  class="col s3 sty-perfil-deta"><strong>Estado: </strong>

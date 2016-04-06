@@ -1,4 +1,5 @@
 class InternalLocationsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_internal_location, only: [:show, :edit, :update, :destroy]
 
   # GET /internal_locations

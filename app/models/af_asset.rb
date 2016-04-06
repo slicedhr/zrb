@@ -12,8 +12,17 @@ class AfAsset < ActiveRecord::Base
 	belongs_to :supplier
 	has_many :af_assets
 	has_many :photos
+	has_paper_trail
+	before_create :set_user
+
 
 	def getChildName(child)
 		AssetName.where(id: child.asset_name)[0].name
 	end
+
+	protected
+
+		def set_user
+			self.user_id = current_user.id
+		end
 end

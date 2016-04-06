@@ -76,20 +76,30 @@
 	position: relative;
 }
 .header .sesion i{
-	height: 10px;
-    position: absolute;
-    right: -12px;
-    top: 34%;
+  height: 10px;
+  position: absolute;
+  right: -12px;
+  top: 34%;
 }
 .app-alerts{
-	background: white;
-	color: #515151;
-	left:0 ;
-	position: absolute;
-	text-align: center;
-	top: 0;
-	width: 100%;
-	z-index: 2;
+  font-size: 17px;
+  left: 0;
+  padding: 9px 0;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+.app-alerts.alert{
+  background: #e74c3c;
+  border: thin solid #c0392b;
+  color:white;
+}
+.app-alerts.notice{
+  background: #2ecc71;
+  border: thin solid #16a085;
+  color:white;
 }
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */

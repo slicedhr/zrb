@@ -2,6 +2,7 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 require 'csv'
+require "paper_trail"
 
 
 
@@ -25,6 +26,8 @@ module Zuko
     # config.i18n.default_locale = :de
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
+
+    config.i18n.default_locale = :es
 
     config.assets.paths << "#{Rails.root}/app/assets/videos"
 

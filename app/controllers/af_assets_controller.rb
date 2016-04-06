@@ -1,5 +1,7 @@
 class AfAssetsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_af_asset, only: [:show, :edit, :update, :destroy]
+
 
 
   # GET /af_assets

@@ -4,41 +4,33 @@
 	<meta charset="utf-8">
 	<title>Zuko</title>
 	
-	<%= favicon_link_tag 'favicon/apple-icon-57x57.png', rel: 'apple-touch-icon', sizes: '57x57' %>
-	<%= favicon_link_tag 'favicon/apple-icon-60x60.png', rel: 'apple-touch-icon', sizes: '60x60' %>
-	<%= favicon_link_tag 'favicon/apple-icon-72x72.png', rel: 'apple-touch-icon', sizes: '72x72' %>
-	<%= favicon_link_tag 'favicon/apple-icon-76x76.png', rel: 'apple-touch-icon', sizes: '76x76' %>
-	<%= favicon_link_tag 'favicon/apple-icon-114x114.png', rel: 'apple-touch-icon', sizes: '114x114' %>
-	<%= favicon_link_tag 'favicon/apple-icon-120x120.png', rel: 'apple-touch-icon', sizes: '120x120' %>
-	<%= favicon_link_tag 'favicon/apple-icon-144x144.png', rel: 'apple-touch-icon', sizes: '144x144' %>
-	<%= favicon_link_tag 'favicon/apple-icon-152x152.png', rel: 'apple-touch-icon', sizes: '152x152' %>
-	<%= favicon_link_tag 'favicon/apple-icon-180x180.png', rel: 'apple-touch-icon', sizes: '180x180' %>
-	<%= favicon_link_tag 'favicon/android-icon-192x192.png', rel: 'icon', type: 'image/png', size: '192x192'  %>
-	<%= favicon_link_tag 'favicon/favicon-32x32.png', rel: 'icon', type: 'image/png', size: '32x32'  %>
-	<%= favicon_link_tag 'favicon/favicon-96x96.png', rel: 'icon', type: 'image/png', size: '96x96'  %>
-	<%= favicon_link_tag 'favicon/favicon-16x16.png', rel: 'icon', type: 'image/png', size: '16x16'  %>
-	<%= favicon_link_tag 'favicon/ms-icon-144x144.png', name: 'msapplication-TileImage' %>
-	<%= favicon_link_tag 'favicon/manifest.json', rel: 'manifest' %>
 	
-	<meta name="msapplication-TileColor" content="#ffffff">
-	<meta name="theme-color" content="#ffffff">
+	<%= render 'partials/favicon'  %>
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+
 	<%= csrf_meta_tags %>
 	
 </head>
+
 <body class="<%= 'login-section' if current_page?(new_user_session_path)  %>" style="<%= 'overflow:hidden' if !user_signed_in?  %>">
 
-<% if notice or alert %>
-	<div class="app-alerts z-depth-5 flash-message animated fadeInDown">
-	  <p class="notice"><%= notice %></p>
-	  <p class="alert"><%= alert %></p>
-	</div>
-<% end %>
+	<% if notice %>
+	  <div class="notice app-alerts z-depth-5 animated fadeInDown"> <i class="fa fa-check"></i> <%= notice %></div>
+	<% end %>
+
+	<% if alert %>
+	
+	  <div class="alert app-alerts z-depth-5 animated fadeInDown"> <i class="fa fa-times"></i>	<%= alert %></div>
+	<% end %>
 
 
 <div class="loadingbox center-align" id="loading">

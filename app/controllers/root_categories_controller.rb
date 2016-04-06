@@ -1,4 +1,5 @@
 class RootCategoriesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_root_category, only: [:show, :edit, :update, :destroy]
 
   # GET /root_categories
